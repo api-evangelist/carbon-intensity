@@ -1,0 +1,125 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+provider: Carbon Intensity API
+providerId: carbon-intensity
+publisherName: National Energy System Operator (NESO)
+serviceCategory: API
+created: '2026-06-13'
+modified: '2026-06-13'
+tags:
+  - Environment
+  - Energy
+  - Carbon Intensity
+  - FinOps
+  - Cost Management
+  - FOCUS
+description: >-
+  FinOps framework definition for the Carbon Intensity API. The API is provided
+  entirely free of charge by NESO; there are no monetary costs to consumers.
+  This document captures operational cost awareness (infrastructure, engineering
+  effort, and fair-use compliance) rather than billing costs, and maps to the
+  FOCUS 1.3 data specification for consistency with FinOps tooling.
+principles:
+  - name: Visibility
+    description: >-
+      Track API consumption volume and latency to ensure compliance with NESO
+      fair-use expectations even though the API has no monetary cost.
+  - name: Allocation
+    description: >-
+      Tag every API call with the consuming team, application, and feature to
+      understand internal engineering usage and dependencies on free public data.
+  - name: Optimization
+    description: >-
+      Cache 30-minute settlement period responses; avoid redundant polling.
+      Use date-range and regional endpoints to batch fetch rather than
+      individual per-period calls.
+  - name: Accountability
+    description: >-
+      Maintain awareness of fair-use obligations in NESO Terms of Use;
+      document any high-volume use cases and consider contacting NESO.
+domains:
+  - name: Understand Usage and Cost
+    capabilities:
+      - Data Ingestion
+      - Allocation
+      - Reporting and Analytics
+      - Anomaly Management
+  - name: Quantify Business Value
+    capabilities:
+      - Planning and Estimating
+      - Forecasting
+      - Benchmarking
+      - Unit Economics
+  - name: Optimize Usage and Cost
+    capabilities:
+      - Architecting for Cloud
+      - Workload Optimization
+      - Cloud Sustainability
+  - name: Manage the FinOps Practice
+    capabilities:
+      - FinOps Practice Operations
+      - FinOps Education and Enablement
+      - Onboarding Workloads
+billingModel:
+  pricingCategory: Free
+  billingFrequency: N/A
+  billingCurrency: GBP
+  chargeCategories:
+    - Usage
+  chargeFrequency: N/A
+  note: >-
+    The Carbon Intensity API has no monetary cost. All billing fields are
+    provided for FOCUS schema completeness but carry zero values.
+focusColumns:
+  ServiceName: Carbon Intensity API
+  ServiceCategory: Developer Tools / API
+  ProviderName: National Energy System Operator (NESO)
+  PublisherName: National Energy System Operator (NESO)
+  InvoiceIssuerName: National Energy System Operator (NESO)
+  PricingCategory: Free
+  PricingUnit: request
+  BillingCurrency: GBP
+  ChargeCategory: Usage
+meters:
+  - name: api_requests
+    description: Count of API requests made to api.carbonintensity.org.uk
+    unit: request
+    aggregation: sum
+    dimensions:
+      - endpoint
+      - region
+      - consumer_team
+      - application
+  - name: data_egress
+    description: Approximate bytes received in API responses
+    unit: GB
+    aggregation: sum
+    dimensions:
+      - endpoint
+      - region
+      - consumer_team
+apis:
+  - name: Carbon Intensity API
+    baseURL: https://api.carbonintensity.org.uk
+    tags:
+      - Carbon Intensity
+      - Energy
+      - Environment
+    serviceName: Carbon Intensity API
+    serviceCategory: API
+unitEconomics:
+  - name: Requests per Day
+    metric: api_requests / active_days
+    target: Minimize redundant calls through caching
+  - name: Engineering Cost per Data Point
+    metric: engineering_hours_cost / data_points_consumed
+    target: Reduce through batched range queries
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

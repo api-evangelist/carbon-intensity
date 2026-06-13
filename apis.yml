@@ -1,0 +1,75 @@
+aid: carbon-intensity
+url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/apis.yml
+name: Carbon Intensity API
+description: >-
+  The Carbon Intensity API is the official carbon intensity forecasting service
+  for Great Britain, developed by the National Energy System Operator (NESO) in
+  partnership with EDF, the University of Oxford, and WWF. It provides real-time,
+  forecast, and historical carbon intensity data alongside generation mix
+  information for GB electricity, with 96+ hour forecasts and 30-minute temporal
+  resolution across 14 regional DNO boundaries. The API is publicly accessible
+  with no authentication required and is licensed under CC BY 4.0.
+specificationVersion: '0.19'
+created: '2026-06-13'
+modified: '2026-06-13'
+tags:
+  - Carbon Intensity
+  - Environment
+  - Energy
+  - Electricity
+  - Climate
+  - Great Britain
+  - National Grid
+apis:
+  - aid: carbon-intensity:carbon-intensity-api
+    name: Carbon Intensity API
+    description: >-
+      REST API providing real-time, forecast, and historical carbon intensity
+      and fuel generation mix data for Great Britain electricity generation.
+      Covers national and 14 regional datasets including England, Scotland, and
+      Wales, with postcode-level queries and up to 48-hour forward forecasts.
+    humanURL: https://carbonintensity.org.uk/
+    baseURL: https://api.carbonintensity.org.uk
+    tags:
+      - Carbon Intensity
+      - Environment
+      - Energy
+      - Electricity
+      - Forecast
+      - Generation Mix
+      - Regional
+    properties:
+      - type: Documentation
+        url: https://carbon-intensity.github.io/api-definitions/
+      - type: OpenAPI
+        url: https://carbon-intensity.github.io/api-definitions/
+      - type: GitHubRepository
+        url: https://github.com/carbon-intensity/api-definitions
+      - type: TermsOfService
+        url: https://github.com/carbon-intensity/terms
+      - type: License
+        url: https://creativecommons.org/licenses/by/4.0/
+      - type: Plans
+        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/plans/carbon-intensity-plans.yml
+      - type: RateLimits
+        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/rate-limits/carbon-intensity-rate-limits.yml
+      - type: FinOps
+        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/finops/carbon-intensity-finops.yml
+common:
+  - type: Website
+    url: https://carbonintensity.org.uk/
+  - type: Documentation
+    url: https://carbon-intensity.github.io/api-definitions/
+  - type: GitHubOrganization
+    url: https://github.com/carbon-intensity
+  - type: TermsOfService
+    url: https://github.com/carbon-intensity/terms
+  - type: License
+    url: https://creativecommons.org/licenses/by/4.0/
+  - type: X
+    url: https://x.com/carbonintensity
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/national-energy-system-operator
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

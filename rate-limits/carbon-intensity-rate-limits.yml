@@ -1,0 +1,78 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Carbon Intensity API
+providerId: carbon-intensity
+created: '2026-06-13'
+modified: '2026-06-13'
+tags:
+  - Environment
+  - Energy
+  - Carbon Intensity
+  - Rate Limiting
+description: >-
+  Rate limit definitions for the Carbon Intensity API. NESO's Terms of Use
+  state that a rate limit is applied and high-volume applications may be blocked,
+  but no specific numeric thresholds are publicly documented. Data range
+  constraints (14-day max for intensity queries, 30-day max for statistics) are
+  enforced at the API level. Estimates below are based on community observations.
+headers:
+  limit: X-RateLimit-Limit
+  remaining: X-RateLimit-Remaining
+  reset: X-RateLimit-Reset
+  retryAfter: Retry-After
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+  serviceUnavailable: 503
+limits:
+  - tier: free
+    name: Public Free Tier Rate Limit
+    scope: ip
+    metric: requests_per_minute
+    limit: 100
+    burst: 200
+    timeFrame: minute
+    note: >-
+      No specific limit is published; NESO terms state limits apply and
+      high-volume callers may be blocked. Estimate based on community reports.
+    applies:
+      - Carbon Intensity API
+  - tier: free
+    name: Intensity Date Range Constraint
+    scope: request
+    metric: days_per_query
+    limit: 14
+    timeFrame: per-request
+    note: >-
+      Queries to /intensity/{from}/{to} are limited to a maximum 14-day window.
+    applies:
+      - Carbon Intensity API
+  - tier: free
+    name: Statistics Date Range Constraint
+    scope: request
+    metric: days_per_query
+    limit: 30
+    timeFrame: per-request
+    note: >-
+      Queries to /intensity/stats/{from}/{to} are limited to a maximum 30-day window.
+    applies:
+      - Carbon Intensity API
+policies:
+  - name: Fair Use
+    description: >-
+      NESO may block applications that make a large number of calls. Clients
+      should avoid hammering the API and implement appropriate caching of
+      30-minute settlement period data.
+  - name: Backoff Strategy
+    description: >-
+      Implement exponential backoff with jitter on 429 or 503 responses,
+      honoring the Retry-After header when present.
+  - name: Caching
+    description: >-
+      Carbon intensity data is updated every 30 minutes. Clients should cache
+      responses for at least one 30-minute settlement period before re-querying
+      the same endpoint.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

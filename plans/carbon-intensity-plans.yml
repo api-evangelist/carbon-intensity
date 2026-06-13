@@ -1,0 +1,69 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Carbon Intensity API
+providerId: carbon-intensity
+created: '2026-06-13'
+modified: '2026-06-13'
+tags:
+  - Environment
+  - Energy
+  - Carbon Intensity
+  - Great Britain
+description: >-
+  Machine-readable plans and pricing definition for the Carbon Intensity API.
+  The API is provided free of charge with no authentication required, under a
+  CC BY 4.0 license. NESO applies a rate limit and may block applications that
+  make a large number of calls, but no specific published limit numbers exist.
+  Values below are best-available estimates from public documentation.
+plans:
+  - id: carbon-intensity-free
+    name: Free
+    type: free
+    description: >-
+      The Carbon Intensity API is entirely free to use with no authentication,
+      API keys, or registration required. Provided by NESO as a public service
+      under CC BY 4.0. Rate limiting is applied at NESO's discretion; no paid
+      tiers exist.
+    entries:
+      - label: API Requests
+        description: >-
+          Unlimited public access; NESO reserves the right to rate-limit or
+          block high-volume applications
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: -1
+        timeFrame: month
+        geo: global
+        domains: []
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Rate Limit
+        description: >-
+          NESO applies a rate limit at its discretion; specific numeric
+          thresholds are not published
+        name: rate_limit
+        type: rate
+        metric: requests_per_minute
+        limit: 100
+        timeFrame: minute
+        geo: global
+        domains: []
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: No Authentication Required
+      - name: National Carbon Intensity Endpoints
+      - name: Regional Carbon Intensity Endpoints
+      - name: Generation Mix Endpoints
+      - name: Statistics Endpoints
+      - name: 96+ Hour Forecasts
+      - name: Historical Data (up to 14-day range queries)
+      - name: Postcode-Level Queries
+      - name: CC BY 4.0 Licensed Data
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
