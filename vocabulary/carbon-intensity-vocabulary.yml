@@ -1,0 +1,149 @@
+vocabulary:
+  name: Carbon Intensity API Vocabulary
+  description: >-
+    Domain vocabulary for the Carbon Intensity API covering terms related to
+    electricity generation, carbon emissions, and grid operations for Great Britain.
+  version: '1.0'
+  source: https://carbon-intensity.github.io/api-definitions/
+  terms:
+    - term: carbon intensity
+      definition: >-
+        A measure of how much CO2 emissions are produced per kilowatt hour of electricity
+        consumed (gCO2/kWh). Lower values indicate cleaner electricity generation.
+      unit: gCO2/kWh
+      aliases:
+        - CI
+        - gCO2/kWh
+    - term: forecast
+      definition: >-
+        The predicted carbon intensity value for a given half-hour period, generated
+        using machine learning models based on weather forecasts, power station schedules,
+        and historical data.
+    - term: actual
+      definition: >-
+        The measured real-world carbon intensity value for a completed half-hour period.
+        Only available for past periods; null for future periods.
+    - term: index
+      definition: >-
+        A qualitative descriptor of the carbon intensity level within the range of
+        observed values. Used to communicate relative cleanliness of electricity.
+      values:
+        - value: very low
+          description: Carbon intensity is in the lowest 20% of observed values
+        - value: low
+          description: Carbon intensity is in the 20-40% range of observed values
+        - value: moderate
+          description: Carbon intensity is in the 40-60% range of observed values
+        - value: high
+          description: Carbon intensity is in the 60-80% range of observed values
+        - value: very high
+          description: Carbon intensity is in the highest 20% of observed values
+    - term: generation mix
+      definition: >-
+        The breakdown of electricity generation by fuel type, expressed as a percentage
+        of total generation for a given period.
+      aliases:
+        - generationmix
+    - term: fuel type
+      definition: >-
+        A category of electricity generation source. The Carbon Intensity API tracks
+        nine fuel types for generation mix calculations.
+      values:
+        - value: biomass
+          description: Generation from organic materials including wood, agricultural waste, and other biofuels
+        - value: coal
+          description: Generation from coal-fired power stations
+        - value: imports
+          description: Net electricity imported from interconnectors with Ireland, France, Netherlands, and Belgium
+        - value: gas
+          description: Generation from gas-fired power stations (combined and open cycle)
+        - value: nuclear
+          description: Generation from nuclear fission power stations
+        - value: other
+          description: Generation from other sources not categorised elsewhere
+        - value: hydro
+          description: Generation from run-of-river and reservoir hydroelectric schemes
+        - value: solar
+          description: Generation from solar photovoltaic panels
+        - value: wind
+          description: Generation from onshore and offshore wind turbines
+    - term: DNO region
+      definition: >-
+        A Distribution Network Operator (DNO) region — a geographic area served by a
+        specific electricity distribution company. Great Britain is divided into 14 DNO
+        regions plus three national subdivisions (England, Scotland, Wales).
+      aliases:
+        - regionid
+        - dnoregion
+    - term: regionid
+      definition: >-
+        Numeric identifier for a DNO region. IDs 1-14 correspond to licensed DNO areas;
+        15=England, 16=Scotland, 17=Wales.
+      values:
+        - value: 1
+          description: North Scotland (Scottish Hydro)
+        - value: 2
+          description: South Scotland (SP Manweb / SP Distribution)
+        - value: 3
+          description: North West England (Electricity North West)
+        - value: 4
+          description: North East England (Northern Electric)
+        - value: 5
+          description: Yorkshire (Northern Powergrid)
+        - value: 6
+          description: North Wales and Mersey (SP Manweb)
+        - value: 7
+          description: West Midlands (Western Power Distribution)
+        - value: 8
+          description: East Midlands (Western Power Distribution)
+        - value: 9
+          description: East England (UK Power Networks)
+        - value: 10
+          description: South West England (Western Power Distribution)
+        - value: 11
+          description: South Wales (Western Power Distribution)
+        - value: 12
+          description: South England (Scottish & Southern Energy)
+        - value: 13
+          description: South East England (UK Power Networks)
+        - value: 14
+          description: London (UK Power Networks)
+        - value: 15
+          description: England (aggregate)
+        - value: 16
+          description: Scotland (aggregate)
+        - value: 17
+          description: Wales (aggregate)
+    - term: half-hour period
+      definition: >-
+        The standard unit of time in GB electricity markets — 30-minute intervals
+        starting on the hour or half-hour. The Carbon Intensity API uses 30-minute
+        temporal resolution for all data.
+    - term: fw24h
+      definition: >-
+        Forward 24-hour window — a query modifier that returns forecast data for the
+        24 hours following the specified datetime.
+    - term: fw48h
+      definition: >-
+        Forward 48-hour window — a query modifier that returns forecast data for the
+        48 hours following the specified datetime.
+    - term: pt24h
+      definition: >-
+        Past 24-hour window — a query modifier that returns historical data for the
+        24 hours preceding the specified datetime.
+    - term: carbon intensity factor
+      definition: >-
+        The CO2 emissions per unit of electricity generated for a specific fuel type,
+        measured in gCO2/kWh. Used as inputs to calculate overall carbon intensity
+        from the generation mix.
+    - term: postcode
+      definition: >-
+        A UK Royal Mail postcode used to identify the DNO region for a location.
+        The API accepts outward codes only (the first part of a postcode, e.g. RG10).
+    - term: Great Britain
+      definition: >-
+        The geographic scope of the Carbon Intensity API, covering England, Scotland,
+        and Wales. Note: Northern Ireland operates a separate electricity grid (Single
+        Electricity Market with Ireland) and is not included.
+      aliases:
+        - GB

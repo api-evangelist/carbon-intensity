@@ -55,6 +55,20 @@ apis:
         url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/rate-limits/carbon-intensity-rate-limits.yml
       - type: FinOps
         url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/finops/carbon-intensity-finops.yml
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/openapi/carbon-intensity-openapi.yml
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/intensity-period.json
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/generation-mix.json
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/regional-intensity.json
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/intensity-factors.json
+      - type: Vocabulary
+        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/vocabulary/carbon-intensity-vocabulary.yml
+      - type: JSONLDContext
+        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-ld/carbon-intensity-context.jsonld
 common:
   - type: Website
     url: https://carbonintensity.org.uk/

@@ -1,0 +1,156 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "ci": "https://carbonintensity.org.uk/vocab/",
+    "data": {
+      "@id": "ci:data",
+      "@container": "@set"
+    },
+    "from": {
+      "@id": "schema:startDate",
+      "@type": "xsd:dateTime"
+    },
+    "to": {
+      "@id": "schema:endDate",
+      "@type": "xsd:dateTime"
+    },
+    "intensity": {
+      "@id": "ci:intensity",
+      "@type": "@id"
+    },
+    "forecast": {
+      "@id": "ci:forecast",
+      "@type": "xsd:integer"
+    },
+    "actual": {
+      "@id": "ci:actual",
+      "@type": "xsd:integer"
+    },
+    "index": {
+      "@id": "ci:index",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "ci:index/"
+      }
+    },
+    "max": {
+      "@id": "schema:maxValue",
+      "@type": "xsd:integer"
+    },
+    "min": {
+      "@id": "schema:minValue",
+      "@type": "xsd:integer"
+    },
+    "average": {
+      "@id": "schema:value",
+      "@type": "xsd:integer"
+    },
+    "generationmix": {
+      "@id": "ci:generationMix",
+      "@container": "@set"
+    },
+    "fuel": {
+      "@id": "ci:fuelType",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "ci:fuel/"
+      }
+    },
+    "perc": {
+      "@id": "ci:percentage",
+      "@type": "xsd:decimal"
+    },
+    "regions": {
+      "@id": "ci:regions",
+      "@container": "@set"
+    },
+    "regionid": {
+      "@id": "ci:regionId",
+      "@type": "xsd:integer"
+    },
+    "dnoregion": {
+      "@id": "ci:dnoRegion",
+      "@type": "xsd:string"
+    },
+    "shortname": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "postcode": {
+      "@id": "schema:postalCode",
+      "@type": "xsd:string"
+    },
+    "error": {
+      "@id": "schema:error",
+      "@type": "@id"
+    },
+    "code": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "Biomass": {
+      "@id": "ci:factor/biomass",
+      "@type": "xsd:integer"
+    },
+    "Coal": {
+      "@id": "ci:factor/coal",
+      "@type": "xsd:integer"
+    },
+    "Dutch Imports": {
+      "@id": "ci:factor/dutch-imports",
+      "@type": "xsd:integer"
+    },
+    "French Imports": {
+      "@id": "ci:factor/french-imports",
+      "@type": "xsd:integer"
+    },
+    "Gas (Combined Cycle)": {
+      "@id": "ci:factor/gas-ccgt",
+      "@type": "xsd:integer"
+    },
+    "Gas (Open Cycle)": {
+      "@id": "ci:factor/gas-ocgt",
+      "@type": "xsd:integer"
+    },
+    "Hydro": {
+      "@id": "ci:factor/hydro",
+      "@type": "xsd:integer"
+    },
+    "Irish Imports": {
+      "@id": "ci:factor/irish-imports",
+      "@type": "xsd:integer"
+    },
+    "Nuclear": {
+      "@id": "ci:factor/nuclear",
+      "@type": "xsd:integer"
+    },
+    "Oil": {
+      "@id": "ci:factor/oil",
+      "@type": "xsd:integer"
+    },
+    "Other": {
+      "@id": "ci:factor/other",
+      "@type": "xsd:integer"
+    },
+    "Pumped Storage": {
+      "@id": "ci:factor/pumped-storage",
+      "@type": "xsd:integer"
+    },
+    "Solar": {
+      "@id": "ci:factor/solar",
+      "@type": "xsd:integer"
+    },
+    "Wind": {
+      "@id": "ci:factor/wind",
+      "@type": "xsd:integer"
+    }
+  }
+}

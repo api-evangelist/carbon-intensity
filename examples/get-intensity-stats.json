@@ -1,0 +1,31 @@
+{
+  "summary": "Get carbon intensity statistics for a date range",
+  "description": "Example response from GET /intensity/stats/2018-01-20T12:00Z/2018-01-20T12:30Z — returns aggregated carbon intensity statistics (min, max, average)",
+  "request": {
+    "method": "GET",
+    "url": "https://api.carbonintensity.org.uk/intensity/stats/2018-01-20T12:00Z/2018-01-20T12:30Z",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": [
+        {
+          "from": "2018-01-20T12:00Z",
+          "to": "2018-01-20T12:30Z",
+          "intensity": {
+            "max": 320,
+            "average": 266,
+            "min": 180,
+            "index": "moderate"
+          }
+        }
+      ]
+    }
+  }
+}

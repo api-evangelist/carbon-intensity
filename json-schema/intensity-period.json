@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/carbon-intensity/main/json-schema/intensity-period.json",
+  "title": "Intensity Period",
+  "description": "Carbon intensity data for a single 30-minute period for Great Britain national grid",
+  "type": "object",
+  "properties": {
+    "from": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start of the half-hour period in ISO 8601 format",
+      "example": "2018-01-20T12:00Z"
+    },
+    "to": {
+      "type": "string",
+      "format": "date-time",
+      "description": "End of the half-hour period in ISO 8601 format",
+      "example": "2018-01-20T12:30Z"
+    },
+    "intensity": {
+      "type": "object",
+      "description": "Carbon intensity measurements",
+      "properties": {
+        "forecast": {
+          "type": "integer",
+          "description": "Forecasted carbon intensity in gCO2/kWh",
+          "minimum": 0,
+          "example": 266
+        },
+        "actual": {
+          "type": ["integer", "null"],
+          "description": "Actual carbon intensity in gCO2/kWh (null for future periods)",
+          "minimum": 0,
+          "example": 263
+        },
+        "index": {
+          "type": "string",
+          "description": "Qualitative carbon intensity index",
+          "enum": ["very low", "low", "moderate", "high", "very high"],
+          "example": "moderate"
+        }
+      },
+      "required": ["forecast", "index"]
+    }
+  },
+  "required": ["from", "to", "intensity"]
+}

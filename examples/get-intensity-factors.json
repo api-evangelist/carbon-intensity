@@ -1,0 +1,37 @@
+{
+  "summary": "Get carbon intensity factors by fuel type",
+  "description": "Example response from GET /intensity/factors — returns the gCO2/kWh carbon intensity factor for each electricity generation fuel type",
+  "request": {
+    "method": "GET",
+    "url": "https://api.carbonintensity.org.uk/intensity/factors",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": [
+        {
+          "Biomass": 120,
+          "Coal": 937,
+          "Dutch Imports": 474,
+          "French Imports": 53,
+          "Gas (Combined Cycle)": 394,
+          "Gas (Open Cycle)": 651,
+          "Hydro": 0,
+          "Irish Imports": 458,
+          "Nuclear": 0,
+          "Oil": 935,
+          "Other": 300,
+          "Pumped Storage": 0,
+          "Solar": 0,
+          "Wind": 0
+        }
+      ]
+    }
+  }
+}

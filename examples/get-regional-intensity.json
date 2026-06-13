@@ -1,0 +1,48 @@
+{
+  "summary": "Get carbon intensity by postcode",
+  "description": "Example response from GET /regional/postcode/RG10 — returns carbon intensity and generation mix for the DNO region containing postcode RG10",
+  "request": {
+    "method": "GET",
+    "url": "https://api.carbonintensity.org.uk/regional/postcode/RG10",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": [
+        {
+          "regionid": 3,
+          "dnoregion": "Electricity North West",
+          "shortname": "North West England",
+          "postcode": "RG10",
+          "data": [
+            {
+              "from": "2018-01-20T12:00Z",
+              "to": "2018-01-20T12:30Z",
+              "intensity": {
+                "forecast": 266,
+                "index": "moderate"
+              },
+              "generationmix": [
+                {"fuel": "gas", "perc": 43.6},
+                {"fuel": "coal", "perc": 0.7},
+                {"fuel": "biomass", "perc": 4.2},
+                {"fuel": "nuclear", "perc": 17.6},
+                {"fuel": "hydro", "perc": 2.2},
+                {"fuel": "imports", "perc": 6.5},
+                {"fuel": "other", "perc": 0.3},
+                {"fuel": "wind", "perc": 6.8},
+                {"fuel": "solar", "perc": 18.1}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
