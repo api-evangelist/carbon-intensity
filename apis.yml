@@ -70,6 +70,8 @@ apis:
       - type: JSONLDContext
         url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-ld/carbon-intensity-context.jsonld
 common:
+  - type: DomainSecurity
+    url: security/carbon-intensity-domain-security.yml
   - type: Website
     url: https://carbonintensity.org.uk/
   - type: Documentation

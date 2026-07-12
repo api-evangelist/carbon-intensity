@@ -1,0 +1,20 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: carbonintensity.org.uk
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec  3 23:59:59 2026 GMT
+  hsts: false
+- host: api.carbonintensity.org.uk
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 21 23:59:59 2026 GMT
+  hsts: null
+domains:
+- domain: carbonintensity.org.uk
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false
