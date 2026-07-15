@@ -1,0 +1,284 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/carbon-intensity-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 27
+  by_action_class:
+    connected: 27
+  by_consequence:
+    read: 27
+  human_in_the_loop_required: 0
+operations:
+- path: /intensity
+  method: get
+  operationId: getCurrentIntensity
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /intensity/date
+  method: get
+  operationId: getIntensityForToday
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /intensity/date/{date}
+  method: get
+  operationId: getIntensityByDate
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /intensity/date/{date}/{period}
+  method: get
+  operationId: getIntensityByDateAndPeriod
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /intensity/factors
+  method: get
+  operationId: getIntensityFactors
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /intensity/{from}
+  method: get
+  operationId: getIntensityFrom
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /intensity/{from}/fw24h
+  method: get
+  operationId: getIntensityForward24h
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /intensity/{from}/fw48h
+  method: get
+  operationId: getIntensityForward48h
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /intensity/{from}/pt24h
+  method: get
+  operationId: getIntensityPast24h
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /intensity/{from}/{to}
+  method: get
+  operationId: getIntensityRange
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /intensity/stats/{from}/{to}
+  method: get
+  operationId: getIntensityStats
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /intensity/stats/{from}/{to}/{block}
+  method: get
+  operationId: getIntensityStatsBlocked
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /generation
+  method: get
+  operationId: getCurrentGeneration
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /generation/{from}/{to}
+  method: get
+  operationId: getGenerationRange
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional
+  method: get
+  operationId: getAllRegionsIntensity
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional/england
+  method: get
+  operationId: getEnglandIntensity
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional/scotland
+  method: get
+  operationId: getScotlandIntensity
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional/wales
+  method: get
+  operationId: getWalesIntensity
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional/postcode/{postcode}
+  method: get
+  operationId: getIntensityByPostcode
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional/regionid/{regionid}
+  method: get
+  operationId: getIntensityByRegionId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional/{from}/{to}
+  method: get
+  operationId: getRegionalIntensityRange
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional/intensity/{from}/fw24h/postcode/{postcode}
+  method: get
+  operationId: getRegionalForward24hByPostcode
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional/intensity/{from}/fw24h/regionid/{regionid}
+  method: get
+  operationId: getRegionalForward24hByRegionId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional/intensity/{from}/fw48h/postcode/{postcode}
+  method: get
+  operationId: getRegionalForward48hByPostcode
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional/intensity/{from}/fw48h/regionid/{regionid}
+  method: get
+  operationId: getRegionalForward48hByRegionId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional/intensity/{from}/pt24h/postcode/{postcode}
+  method: get
+  operationId: getRegionalPast24hByPostcode
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /regional/intensity/{from}/pt24h/regionid/{regionid}
+  method: get
+  operationId: getRegionalPast24hByRegionId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
