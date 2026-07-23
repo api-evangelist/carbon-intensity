@@ -1,0 +1,194 @@
+openapi: 3.0.3
+info:
+  title: Carbon Intensity Factors Statistics API
+  description: The Carbon Intensity API is the official carbon intensity forecasting service for Great Britain, developed by the National Energy System Operator (NESO) in partnership with EDF, the University of Oxford, and WWF. It provides real-time, forecast, and historical carbon intensity data alongside generation mix information for GB electricity, with 96+ hour forecasts and 30-minute temporal resolution across 14 regional DNO boundaries. The API is publicly accessible with no authentication required and is licensed under CC BY 4.0.
+  version: '2.0'
+  contact:
+    name: Carbon Intensity API Support
+    url: https://carbonintensity.org.uk/
+    email: lyndon.ruff@nationalgrideso.com
+  license:
+    name: Creative Commons Attribution 4.0 International (CC BY 4.0)
+    url: https://creativecommons.org/licenses/by/4.0/
+  termsOfService: https://github.com/carbon-intensity/terms
+servers:
+- url: https://api.carbonintensity.org.uk
+  description: Production API server
+tags:
+- name: Statistics
+  description: Carbon intensity statistics and aggregations
+paths:
+  /intensity/stats/{from}/{to}:
+    get:
+      summary: Get carbon intensity statistics for a date/time range
+      description: Returns aggregated carbon intensity statistics (min, max, average) for the specified date/time range.
+      operationId: getIntensityStats
+      tags:
+      - Statistics
+      parameters:
+      - $ref: '#/components/parameters/FromDatetime'
+      - $ref: '#/components/parameters/ToDatetime'
+      responses:
+        '200':
+          description: Successful response with carbon intensity statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntensityStatsResponse'
+              example:
+                data:
+                - from: 2018-01-20T12:00Z
+                  to: 2018-01-20T12:30Z
+                  intensity:
+                    max: 320
+                    average: 266
+                    min: 180
+                    index: moderate
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /intensity/stats/{from}/{to}/{block}:
+    get:
+      summary: Get blocked carbon intensity statistics for a date/time range
+      description: Returns aggregated carbon intensity statistics (min, max, average) for the specified date/time range, grouped into blocks of the specified number of hours.
+      operationId: getIntensityStatsBlocked
+      tags:
+      - Statistics
+      parameters:
+      - $ref: '#/components/parameters/FromDatetime'
+      - $ref: '#/components/parameters/ToDatetime'
+      - name: block
+        in: path
+        required: true
+        description: Block size in hours (1-24)
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 24
+          example: 2
+      responses:
+        '200':
+          description: Successful response with blocked carbon intensity statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntensityStatsResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+    IntensityStatsResponse:
+      type: object
+      description: Response containing aggregated carbon intensity statistics
+      properties:
+        data:
+          type: array
+          description: Array of carbon intensity statistics periods
+          items:
+            $ref: '#/components/schemas/IntensityStatsPeriod'
+    IntensityStatsPeriod:
+      type: object
+      description: Carbon intensity statistics for a time period
+      properties:
+        from:
+          type: string
+          format: date-time
+          description: Start of the period (ISO 8601)
+          example: 2018-01-20T12:00Z
+        to:
+          type: string
+          format: date-time
+          description: End of the period (ISO 8601)
+          example: 2018-01-20T12:30Z
+        intensity:
+          $ref: '#/components/schemas/IntensityStats'
+    IntensityStats:
+      type: object
+      description: Aggregated carbon intensity statistics
+      properties:
+        max:
+          type: integer
+          description: Maximum carbon intensity in gCO2/kWh
+          example: 320
+        average:
+          type: integer
+          description: Average carbon intensity in gCO2/kWh
+          example: 266
+        min:
+          type: integer
+          description: Minimum carbon intensity in gCO2/kWh
+          example: 180
+        index:
+          type: string
+          description: Qualitative carbon intensity index for the average
+          enum:
+          - very low
+          - low
+          - moderate
+          - high
+          - very high
+          example: moderate
+    ErrorResponse:
+      type: object
+      description: Error response wrapper
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
+    Error:
+      type: object
+      description: Error response
+      properties:
+        code:
+          type: string
+          description: HTTP status code and description
+          example: 400 Bad Request
+        message:
+          type: string
+          description: Human-readable error message
+          example: Please enter a valid path e.g. /intensity/
+  parameters:
+    FromDatetime:
+      name: from
+      in: path
+      required: true
+      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:00Z
+    ToDatetime:
+      name: to
+      in: path
+      required: true
+      description: 'End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:30Z
+  responses:
+    BadRequest:
+      description: Bad request - invalid parameters or path
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: 400 Bad Request
+              message: Please enter a valid path e.g. /intensity/
+    InternalServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: 500 Internal Server Error
+              message: Internal Server Error
+externalDocs:
+  description: Carbon Intensity API Documentation
+  url: https://carbon-intensity.github.io/api-definitions/

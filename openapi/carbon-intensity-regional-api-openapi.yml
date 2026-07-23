@@ -1,0 +1,630 @@
+openapi: 3.0.3
+info:
+  title: Carbon Intensity Factors Regional API
+  description: The Carbon Intensity API is the official carbon intensity forecasting service for Great Britain, developed by the National Energy System Operator (NESO) in partnership with EDF, the University of Oxford, and WWF. It provides real-time, forecast, and historical carbon intensity data alongside generation mix information for GB electricity, with 96+ hour forecasts and 30-minute temporal resolution across 14 regional DNO boundaries. The API is publicly accessible with no authentication required and is licensed under CC BY 4.0.
+  version: '2.0'
+  contact:
+    name: Carbon Intensity API Support
+    url: https://carbonintensity.org.uk/
+    email: lyndon.ruff@nationalgrideso.com
+  license:
+    name: Creative Commons Attribution 4.0 International (CC BY 4.0)
+    url: https://creativecommons.org/licenses/by/4.0/
+  termsOfService: https://github.com/carbon-intensity/terms
+servers:
+- url: https://api.carbonintensity.org.uk
+  description: Production API server
+tags:
+- name: Regional
+  description: Regional carbon intensity and generation mix data (beta)
+paths:
+  /regional:
+    get:
+      summary: Get current carbon intensity for all regions
+      description: Returns current carbon intensity and generation mix for all 14 regional DNO boundaries in Great Britain. This is a beta endpoint.
+      operationId: getAllRegionsIntensity
+      tags:
+      - Regional
+      responses:
+        '200':
+          description: Successful response with regional carbon intensity data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionalResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /regional/england:
+    get:
+      summary: Get current carbon intensity for England
+      description: Returns current carbon intensity and generation mix for England. This is a beta endpoint.
+      operationId: getEnglandIntensity
+      tags:
+      - Regional
+      responses:
+        '200':
+          description: Successful response with England carbon intensity data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionalResponse'
+              example:
+                data:
+                - from: 2018-01-20T12:00Z
+                  to: 2018-01-20T12:30Z
+                  regions:
+                  - regionid: 15
+                    dnoregion: England
+                    shortname: England
+                    intensity:
+                      forecast: 266
+                      index: moderate
+                    generationmix:
+                    - fuel: gas
+                      perc: 43.6
+                    - fuel: coal
+                      perc: 0.7
+                    - fuel: wind
+                      perc: 6.8
+                    - fuel: solar
+                      perc: 18.1
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /regional/scotland:
+    get:
+      summary: Get current carbon intensity for Scotland
+      description: Returns current carbon intensity and generation mix for Scotland. This is a beta endpoint.
+      operationId: getScotlandIntensity
+      tags:
+      - Regional
+      responses:
+        '200':
+          description: Successful response with Scotland carbon intensity data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionalResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /regional/wales:
+    get:
+      summary: Get current carbon intensity for Wales
+      description: Returns current carbon intensity and generation mix for Wales. This is a beta endpoint.
+      operationId: getWalesIntensity
+      tags:
+      - Regional
+      responses:
+        '200':
+          description: Successful response with Wales carbon intensity data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionalResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /regional/postcode/{postcode}:
+    get:
+      summary: Get carbon intensity for a specific postcode
+      description: Returns current carbon intensity and generation mix for the DNO region containing the specified postcode. This is a beta endpoint.
+      operationId: getIntensityByPostcode
+      tags:
+      - Regional
+      parameters:
+      - name: postcode
+        in: path
+        required: true
+        description: GB postcode (outward code only, e.g. RG10)
+        schema:
+          type: string
+          example: RG10
+      responses:
+        '200':
+          description: Successful response with regional carbon intensity data for the postcode
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostcodeResponse'
+              example:
+                data:
+                - regionid: 3
+                  dnoregion: Electricity North West
+                  shortname: North West England
+                  postcode: RG10
+                  data:
+                  - from: 2018-01-20T12:00Z
+                    to: 2018-01-20T12:30Z
+                    intensity:
+                      forecast: 266
+                      index: moderate
+                    generationmix:
+                    - fuel: gas
+                      perc: 43.6
+                    - fuel: wind
+                      perc: 6.8
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /regional/regionid/{regionid}:
+    get:
+      summary: Get carbon intensity for a specific region ID
+      description: Returns current carbon intensity and generation mix for the specified DNO region. Region IDs range from 1-17, covering 14 DNO areas plus England (15), Scotland (16), and Wales (17). This is a beta endpoint.
+      operationId: getIntensityByRegionId
+      tags:
+      - Regional
+      parameters:
+      - name: regionid
+        in: path
+        required: true
+        description: DNO region ID (1-17)
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 17
+          example: 3
+      responses:
+        '200':
+          description: Successful response with regional carbon intensity data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionIdResponse'
+              example:
+                data:
+                - regionid: 3
+                  dnoregion: Electricity North West
+                  shortname: North West England
+                  data:
+                  - from: 2018-01-20T12:00Z
+                    to: 2018-01-20T12:30Z
+                    intensity:
+                      forecast: 266
+                      index: moderate
+                    generationmix:
+                    - fuel: gas
+                      perc: 43.6
+                    - fuel: wind
+                      perc: 6.8
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /regional/{from}/{to}:
+    get:
+      summary: Get regional carbon intensity for a date/time range
+      description: Returns carbon intensity and generation mix for all regions across the specified date/time range. This is a beta endpoint.
+      operationId: getRegionalIntensityRange
+      tags:
+      - Regional
+      parameters:
+      - $ref: '#/components/parameters/FromDatetime'
+      - $ref: '#/components/parameters/ToDatetime'
+      responses:
+        '200':
+          description: Successful response with regional carbon intensity data for the range
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionalResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /regional/intensity/{from}/fw24h/postcode/{postcode}:
+    get:
+      summary: Get 24-hour forward regional intensity forecast by postcode
+      description: Returns 24-hour forward carbon intensity forecast for the region containing the specified postcode. This is a beta endpoint.
+      operationId: getRegionalForward24hByPostcode
+      tags:
+      - Regional
+      parameters:
+      - $ref: '#/components/parameters/FromDatetime'
+      - name: postcode
+        in: path
+        required: true
+        description: GB postcode (outward code only)
+        schema:
+          type: string
+          example: RG10
+      responses:
+        '200':
+          description: Successful response with 24-hour regional forecast data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostcodeResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /regional/intensity/{from}/fw24h/regionid/{regionid}:
+    get:
+      summary: Get 24-hour forward regional intensity forecast by region ID
+      description: Returns 24-hour forward carbon intensity forecast for the specified region. This is a beta endpoint.
+      operationId: getRegionalForward24hByRegionId
+      tags:
+      - Regional
+      parameters:
+      - $ref: '#/components/parameters/FromDatetime'
+      - name: regionid
+        in: path
+        required: true
+        description: DNO region ID (1-17)
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 17
+          example: 3
+      responses:
+        '200':
+          description: Successful response with 24-hour regional forecast data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionIdResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /regional/intensity/{from}/fw48h/postcode/{postcode}:
+    get:
+      summary: Get 48-hour forward regional intensity forecast by postcode
+      description: Returns 48-hour forward carbon intensity forecast for the region containing the specified postcode. This is a beta endpoint.
+      operationId: getRegionalForward48hByPostcode
+      tags:
+      - Regional
+      parameters:
+      - $ref: '#/components/parameters/FromDatetime'
+      - name: postcode
+        in: path
+        required: true
+        description: GB postcode (outward code only)
+        schema:
+          type: string
+          example: RG10
+      responses:
+        '200':
+          description: Successful response with 48-hour regional forecast data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostcodeResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /regional/intensity/{from}/fw48h/regionid/{regionid}:
+    get:
+      summary: Get 48-hour forward regional intensity forecast by region ID
+      description: Returns 48-hour forward carbon intensity forecast for the specified region. This is a beta endpoint.
+      operationId: getRegionalForward48hByRegionId
+      tags:
+      - Regional
+      parameters:
+      - $ref: '#/components/parameters/FromDatetime'
+      - name: regionid
+        in: path
+        required: true
+        description: DNO region ID (1-17)
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 17
+          example: 3
+      responses:
+        '200':
+          description: Successful response with 48-hour regional forecast data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionIdResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /regional/intensity/{from}/pt24h/postcode/{postcode}:
+    get:
+      summary: Get 24-hour historical regional intensity by postcode
+      description: Returns 24-hour historical carbon intensity data for the region containing the specified postcode. This is a beta endpoint.
+      operationId: getRegionalPast24hByPostcode
+      tags:
+      - Regional
+      parameters:
+      - $ref: '#/components/parameters/FromDatetime'
+      - name: postcode
+        in: path
+        required: true
+        description: GB postcode (outward code only)
+        schema:
+          type: string
+          example: RG10
+      responses:
+        '200':
+          description: Successful response with 24-hour historical regional data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostcodeResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /regional/intensity/{from}/pt24h/regionid/{regionid}:
+    get:
+      summary: Get 24-hour historical regional intensity by region ID
+      description: Returns 24-hour historical carbon intensity data for the specified region. This is a beta endpoint.
+      operationId: getRegionalPast24hByRegionId
+      tags:
+      - Regional
+      parameters:
+      - $ref: '#/components/parameters/FromDatetime'
+      - name: regionid
+        in: path
+        required: true
+        description: DNO region ID (1-17)
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 17
+          example: 3
+      responses:
+        '200':
+          description: Successful response with 24-hour historical regional data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionIdResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+    RegionDataPeriod:
+      type: object
+      description: Carbon intensity and generation mix for a single time period within a region
+      properties:
+        from:
+          type: string
+          format: date-time
+          description: Start of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:00Z
+        to:
+          type: string
+          format: date-time
+          description: End of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:30Z
+        intensity:
+          $ref: '#/components/schemas/RegionalIntensity'
+        generationmix:
+          type: array
+          description: Generation mix for this period
+          items:
+            $ref: '#/components/schemas/GenerationMixItem'
+    RegionById:
+      type: object
+      description: Data for a specific DNO region with time-series data
+      properties:
+        regionid:
+          type: integer
+          description: DNO region identifier (1-17)
+          example: 3
+        dnoregion:
+          type: string
+          description: Full DNO region name
+          example: Electricity North West
+        shortname:
+          type: string
+          description: Short region name
+          example: North West England
+        data:
+          type: array
+          description: Time-series intensity and generation mix data
+          items:
+            $ref: '#/components/schemas/RegionDataPeriod'
+    RegionByPostcode:
+      type: object
+      description: Data for the DNO region containing the specified postcode
+      properties:
+        regionid:
+          type: integer
+          description: DNO region identifier (1-17)
+          example: 3
+        dnoregion:
+          type: string
+          description: Full DNO region name
+          example: Electricity North West
+        shortname:
+          type: string
+          description: Short region name
+          example: North West England
+        postcode:
+          type: string
+          description: Postcode queried
+          example: RG10
+        data:
+          type: array
+          description: Time-series intensity and generation mix data
+          items:
+            $ref: '#/components/schemas/RegionDataPeriod'
+    Region:
+      type: object
+      description: Data for a single DNO region
+      properties:
+        regionid:
+          type: integer
+          description: DNO region identifier (1-17)
+          example: 3
+        dnoregion:
+          type: string
+          description: Full DNO region name
+          example: Electricity North West
+        shortname:
+          type: string
+          description: Short region name
+          example: North West England
+        intensity:
+          $ref: '#/components/schemas/RegionalIntensity'
+        generationmix:
+          type: array
+          description: Generation mix for this region
+          items:
+            $ref: '#/components/schemas/GenerationMixItem'
+    GenerationMixItem:
+      type: object
+      description: Generation percentage for a single fuel type
+      properties:
+        fuel:
+          type: string
+          description: Fuel type name
+          enum:
+          - biomass
+          - coal
+          - imports
+          - gas
+          - nuclear
+          - other
+          - hydro
+          - solar
+          - wind
+          example: gas
+        perc:
+          type: number
+          format: float
+          description: Percentage of total generation from this fuel type
+          minimum: 0
+          maximum: 100
+          example: 43.6
+    RegionalResponse:
+      type: object
+      description: Response containing regional carbon intensity data
+      properties:
+        data:
+          type: array
+          description: Array of regional carbon intensity periods
+          items:
+            $ref: '#/components/schemas/RegionalPeriod'
+    PostcodeResponse:
+      type: object
+      description: Response containing data for the region matching a postcode
+      properties:
+        data:
+          type: array
+          description: Array containing the postcode region data
+          items:
+            $ref: '#/components/schemas/RegionByPostcode'
+    RegionalIntensity:
+      type: object
+      description: Regional carbon intensity data
+      properties:
+        forecast:
+          type: integer
+          description: Forecasted carbon intensity in gCO2/kWh for the region
+          example: 266
+        index:
+          type: string
+          description: Qualitative carbon intensity index
+          enum:
+          - very low
+          - low
+          - moderate
+          - high
+          - very high
+          example: moderate
+    ErrorResponse:
+      type: object
+      description: Error response wrapper
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
+    RegionIdResponse:
+      type: object
+      description: Response containing data for a specific region
+      properties:
+        data:
+          type: array
+          description: Array containing the region data
+          items:
+            $ref: '#/components/schemas/RegionById'
+    RegionalPeriod:
+      type: object
+      description: Regional carbon intensity data for a time period
+      properties:
+        from:
+          type: string
+          format: date-time
+          description: Start of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:00Z
+        to:
+          type: string
+          format: date-time
+          description: End of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:30Z
+        regions:
+          type: array
+          description: List of regional intensity data
+          items:
+            $ref: '#/components/schemas/Region'
+    Error:
+      type: object
+      description: Error response
+      properties:
+        code:
+          type: string
+          description: HTTP status code and description
+          example: 400 Bad Request
+        message:
+          type: string
+          description: Human-readable error message
+          example: Please enter a valid path e.g. /intensity/
+  parameters:
+    FromDatetime:
+      name: from
+      in: path
+      required: true
+      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:00Z
+    ToDatetime:
+      name: to
+      in: path
+      required: true
+      description: 'End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:30Z
+  responses:
+    BadRequest:
+      description: Bad request - invalid parameters or path
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: 400 Bad Request
+              message: Please enter a valid path e.g. /intensity/
+    InternalServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: 500 Internal Server Error
+              message: Internal Server Error
+externalDocs:
+  description: Carbon Intensity API Documentation
+  url: https://carbon-intensity.github.io/api-definitions/

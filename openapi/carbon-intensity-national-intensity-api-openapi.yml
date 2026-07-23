@@ -1,0 +1,339 @@
+openapi: 3.0.3
+info:
+  title: Carbon Intensity Factors National Intensity API
+  description: The Carbon Intensity API is the official carbon intensity forecasting service for Great Britain, developed by the National Energy System Operator (NESO) in partnership with EDF, the University of Oxford, and WWF. It provides real-time, forecast, and historical carbon intensity data alongside generation mix information for GB electricity, with 96+ hour forecasts and 30-minute temporal resolution across 14 regional DNO boundaries. The API is publicly accessible with no authentication required and is licensed under CC BY 4.0.
+  version: '2.0'
+  contact:
+    name: Carbon Intensity API Support
+    url: https://carbonintensity.org.uk/
+    email: lyndon.ruff@nationalgrideso.com
+  license:
+    name: Creative Commons Attribution 4.0 International (CC BY 4.0)
+    url: https://creativecommons.org/licenses/by/4.0/
+  termsOfService: https://github.com/carbon-intensity/terms
+servers:
+- url: https://api.carbonintensity.org.uk
+  description: Production API server
+tags:
+- name: National Intensity
+  description: National carbon intensity data for Great Britain
+paths:
+  /intensity:
+    get:
+      summary: Get current national carbon intensity
+      description: Returns current national carbon intensity for Great Britain. Returns data for the half-hour period that includes the current time.
+      operationId: getCurrentIntensity
+      tags:
+      - National Intensity
+      responses:
+        '200':
+          description: Successful response with current carbon intensity data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntensityResponse'
+              example:
+                data:
+                - from: 2018-01-20T12:00Z
+                  to: 2018-01-20T12:30Z
+                  intensity:
+                    forecast: 266
+                    actual: 263
+                    index: moderate
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /intensity/date:
+    get:
+      summary: Get national carbon intensity for today
+      description: Returns national carbon intensity data for all half-hour periods in the current date (today).
+      operationId: getIntensityForToday
+      tags:
+      - National Intensity
+      responses:
+        '200':
+          description: Successful response with today's carbon intensity data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntensityResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /intensity/date/{date}:
+    get:
+      summary: Get national carbon intensity for a specific date
+      description: Returns national carbon intensity data for all half-hour periods on the specified date.
+      operationId: getIntensityByDate
+      tags:
+      - National Intensity
+      parameters:
+      - name: date
+        in: path
+        required: true
+        description: Date in YYYY-MM-DD format
+        schema:
+          type: string
+          format: date
+          example: '2018-01-20'
+      responses:
+        '200':
+          description: Successful response with carbon intensity data for the specified date
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntensityResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /intensity/date/{date}/{period}:
+    get:
+      summary: Get national carbon intensity for a specific date and period
+      description: Returns national carbon intensity data for a specific half-hour period on the specified date. Periods are numbered 1-48 representing 30-minute intervals from midnight.
+      operationId: getIntensityByDateAndPeriod
+      tags:
+      - National Intensity
+      parameters:
+      - name: date
+        in: path
+        required: true
+        description: Date in YYYY-MM-DD format
+        schema:
+          type: string
+          format: date
+          example: '2018-01-20'
+      - name: period
+        in: path
+        required: true
+        description: Half-hour period number (1-48)
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 48
+          example: 24
+      responses:
+        '200':
+          description: Successful response with carbon intensity data for the specified date and period
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntensityResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /intensity/{from}:
+    get:
+      summary: Get national carbon intensity from a specific datetime
+      description: Returns national carbon intensity data for the half-hour period that includes the specified datetime.
+      operationId: getIntensityFrom
+      tags:
+      - National Intensity
+      parameters:
+      - $ref: '#/components/parameters/FromDatetime'
+      responses:
+        '200':
+          description: Successful response with carbon intensity data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntensityResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /intensity/{from}/fw24h:
+    get:
+      summary: Get 24-hour forward forecast from a specific datetime
+      description: Returns national carbon intensity forecast data for the 24 hours following the specified datetime, with 30-minute resolution.
+      operationId: getIntensityForward24h
+      tags:
+      - National Intensity
+      parameters:
+      - $ref: '#/components/parameters/FromDatetime'
+      responses:
+        '200':
+          description: Successful response with 24-hour forward forecast data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntensityResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /intensity/{from}/fw48h:
+    get:
+      summary: Get 48-hour forward forecast from a specific datetime
+      description: Returns national carbon intensity forecast data for the 48 hours following the specified datetime, with 30-minute resolution.
+      operationId: getIntensityForward48h
+      tags:
+      - National Intensity
+      parameters:
+      - $ref: '#/components/parameters/FromDatetime'
+      responses:
+        '200':
+          description: Successful response with 48-hour forward forecast data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntensityResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /intensity/{from}/pt24h:
+    get:
+      summary: Get 24-hour historical data ending at a specific datetime
+      description: Returns national carbon intensity data for the 24 hours preceding the specified datetime, with 30-minute resolution.
+      operationId: getIntensityPast24h
+      tags:
+      - National Intensity
+      parameters:
+      - $ref: '#/components/parameters/FromDatetime'
+      responses:
+        '200':
+          description: Successful response with 24-hour historical data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntensityResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /intensity/{from}/{to}:
+    get:
+      summary: Get national carbon intensity for a date/time range
+      description: Returns national carbon intensity data for all half-hour periods between the specified from and to datetimes. Maximum range is 14 days.
+      operationId: getIntensityRange
+      tags:
+      - National Intensity
+      parameters:
+      - $ref: '#/components/parameters/FromDatetime'
+      - $ref: '#/components/parameters/ToDatetime'
+      responses:
+        '200':
+          description: Successful response with carbon intensity data for the specified range
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntensityResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+    Intensity:
+      type: object
+      description: Carbon intensity measurements and forecast
+      properties:
+        forecast:
+          type: integer
+          description: Forecasted carbon intensity in gCO2/kWh
+          example: 266
+        actual:
+          type: integer
+          nullable: true
+          description: Actual carbon intensity in gCO2/kWh (null for future periods)
+          example: 263
+        index:
+          type: string
+          description: Qualitative carbon intensity index
+          enum:
+          - very low
+          - low
+          - moderate
+          - high
+          - very high
+          example: moderate
+    IntensityResponse:
+      type: object
+      description: Response containing national carbon intensity data
+      properties:
+        data:
+          type: array
+          description: Array of carbon intensity periods
+          items:
+            $ref: '#/components/schemas/IntensityPeriod'
+    ErrorResponse:
+      type: object
+      description: Error response wrapper
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
+    IntensityPeriod:
+      type: object
+      description: Carbon intensity data for a single half-hour period
+      properties:
+        from:
+          type: string
+          format: date-time
+          description: Start of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:00Z
+        to:
+          type: string
+          format: date-time
+          description: End of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:30Z
+        intensity:
+          $ref: '#/components/schemas/Intensity'
+    Error:
+      type: object
+      description: Error response
+      properties:
+        code:
+          type: string
+          description: HTTP status code and description
+          example: 400 Bad Request
+        message:
+          type: string
+          description: Human-readable error message
+          example: Please enter a valid path e.g. /intensity/
+  parameters:
+    FromDatetime:
+      name: from
+      in: path
+      required: true
+      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:00Z
+    ToDatetime:
+      name: to
+      in: path
+      required: true
+      description: 'End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:30Z
+  responses:
+    BadRequest:
+      description: Bad request - invalid parameters or path
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: 400 Bad Request
+              message: Please enter a valid path e.g. /intensity/
+    InternalServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: 500 Internal Server Error
+              message: Internal Server Error
+externalDocs:
+  description: Carbon Intensity API Documentation
+  url: https://carbon-intensity.github.io/api-definitions/
