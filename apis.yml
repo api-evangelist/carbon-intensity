@@ -1,4 +1,17 @@
 aid: carbon-intensity
+accessModel:
+  pricing: free
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Free · Open access
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/carbon-intensity.png
 url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/apis.yml
 name: Carbon Intensity API
 description: >-
@@ -21,54 +34,231 @@ tags:
   - Great Britain
   - National Grid
 apis:
-  - aid: carbon-intensity:carbon-intensity-api
-    name: Carbon Intensity API
-    description: >-
-      REST API providing real-time, forecast, and historical carbon intensity
-      and fuel generation mix data for Great Britain electricity generation.
-      Covers national and 14 regional datasets including England, Scotland, and
-      Wales, with postcode-level queries and up to 48-hour forward forecasts.
-    humanURL: https://carbonintensity.org.uk/
-    baseURL: https://api.carbonintensity.org.uk
-    tags:
-      - Carbon Intensity
-      - Environment
-      - Energy
-      - Electricity
-      - Forecast
-      - Generation Mix
-      - Regional
-    properties:
-      - type: Documentation
-        url: https://carbon-intensity.github.io/api-definitions/
-      - type: OpenAPI
-        url: https://carbon-intensity.github.io/api-definitions/
-      - type: GitHubRepository
-        url: https://github.com/carbon-intensity/api-definitions
-      - type: TermsOfService
-        url: https://github.com/carbon-intensity/terms
-      - type: License
-        url: https://creativecommons.org/licenses/by/4.0/
-      - type: Plans
-        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/plans/carbon-intensity-plans.yml
-      - type: RateLimits
-        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/rate-limits/carbon-intensity-rate-limits.yml
-      - type: FinOps
-        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/finops/carbon-intensity-finops.yml
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/openapi/carbon-intensity-openapi.yml
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/intensity-period.json
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/generation-mix.json
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/regional-intensity.json
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/intensity-factors.json
-      - type: Vocabulary
-        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/vocabulary/carbon-intensity-vocabulary.yml
-      - type: JSONLDContext
-        url: https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-ld/carbon-intensity-context.jsonld
+- aid: carbon-intensity:carbon-intensity-factors-api
+  name: Carbon Intensity API Factors API
+  description: Carbon intensity factors by fuel type
+  humanURL: https://carbonintensity.org.uk/
+  baseURL: https://api.carbonintensity.org.uk
+  tags:
+  - Factors
+  properties:
+  - type: OpenAPI
+    url: openapi/carbon-intensity-factors-api-openapi.yml
+  - type: Documentation
+    url: https://carbon-intensity.github.io/api-definitions/
+  - type: GitHubRepository
+    url: https://github.com/carbon-intensity/api-definitions
+  - type: TermsOfService
+    url: https://github.com/carbon-intensity/terms
+  - type: License
+    url: https://creativecommons.org/licenses/by/4.0/
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/plans/carbon-intensity-plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/rate-limits/carbon-intensity-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/finops/carbon-intensity-finops.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/intensity-period.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/generation-mix.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/regional-intensity.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/intensity-factors.json
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/vocabulary/carbon-intensity-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-ld/carbon-intensity-context.jsonld
+- aid: carbon-intensity:carbon-intensity-generation-mix-api
+  name: Carbon Intensity API Generation Mix API
+  description: Electricity generation mix data (beta)
+  humanURL: https://carbonintensity.org.uk/
+  baseURL: https://api.carbonintensity.org.uk
+  tags:
+  - Generation Mix
+  properties:
+  - type: OpenAPI
+    url: openapi/carbon-intensity-generation-mix-api-openapi.yml
+  - type: Documentation
+    url: https://carbon-intensity.github.io/api-definitions/
+  - type: GitHubRepository
+    url: https://github.com/carbon-intensity/api-definitions
+  - type: TermsOfService
+    url: https://github.com/carbon-intensity/terms
+  - type: License
+    url: https://creativecommons.org/licenses/by/4.0/
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/plans/carbon-intensity-plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/rate-limits/carbon-intensity-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/finops/carbon-intensity-finops.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/intensity-period.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/generation-mix.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/regional-intensity.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/intensity-factors.json
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/vocabulary/carbon-intensity-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-ld/carbon-intensity-context.jsonld
+- aid: carbon-intensity:carbon-intensity-national-intensity-api
+  name: Carbon Intensity API National Intensity API
+  description: National carbon intensity data for Great Britain
+  humanURL: https://carbonintensity.org.uk/
+  baseURL: https://api.carbonintensity.org.uk
+  tags:
+  - National Intensity
+  properties:
+  - type: OpenAPI
+    url: openapi/carbon-intensity-national-intensity-api-openapi.yml
+  - type: Documentation
+    url: https://carbon-intensity.github.io/api-definitions/
+  - type: GitHubRepository
+    url: https://github.com/carbon-intensity/api-definitions
+  - type: TermsOfService
+    url: https://github.com/carbon-intensity/terms
+  - type: License
+    url: https://creativecommons.org/licenses/by/4.0/
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/plans/carbon-intensity-plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/rate-limits/carbon-intensity-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/finops/carbon-intensity-finops.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/intensity-period.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/generation-mix.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/regional-intensity.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/intensity-factors.json
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/vocabulary/carbon-intensity-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-ld/carbon-intensity-context.jsonld
+- aid: carbon-intensity:carbon-intensity-regional-api
+  name: Carbon Intensity API Regional API
+  description: Regional carbon intensity and generation mix data (beta)
+  humanURL: https://carbonintensity.org.uk/
+  baseURL: https://api.carbonintensity.org.uk
+  tags:
+  - Regional
+  properties:
+  - type: OpenAPI
+    url: openapi/carbon-intensity-regional-api-openapi.yml
+  - type: Documentation
+    url: https://carbon-intensity.github.io/api-definitions/
+  - type: GitHubRepository
+    url: https://github.com/carbon-intensity/api-definitions
+  - type: TermsOfService
+    url: https://github.com/carbon-intensity/terms
+  - type: License
+    url: https://creativecommons.org/licenses/by/4.0/
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/plans/carbon-intensity-plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/rate-limits/carbon-intensity-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/finops/carbon-intensity-finops.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/intensity-period.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/generation-mix.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/regional-intensity.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/intensity-factors.json
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/vocabulary/carbon-intensity-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-ld/carbon-intensity-context.jsonld
+- aid: carbon-intensity:carbon-intensity-statistics-api
+  name: Carbon Intensity API Statistics API
+  description: Carbon intensity statistics and aggregations
+  humanURL: https://carbonintensity.org.uk/
+  baseURL: https://api.carbonintensity.org.uk
+  tags:
+  - Statistics
+  properties:
+  - type: OpenAPI
+    url: openapi/carbon-intensity-statistics-api-openapi.yml
+  - type: Documentation
+    url: https://carbon-intensity.github.io/api-definitions/
+  - type: GitHubRepository
+    url: https://github.com/carbon-intensity/api-definitions
+  - type: TermsOfService
+    url: https://github.com/carbon-intensity/terms
+  - type: License
+    url: https://creativecommons.org/licenses/by/4.0/
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/plans/carbon-intensity-plans.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/rate-limits/carbon-intensity-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/finops/carbon-intensity-finops.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/intensity-period.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/generation-mix.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/regional-intensity.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-schema/intensity-factors.json
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/vocabulary/carbon-intensity-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-ld/carbon-intensity-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/carbon-intensity-agentic-access.yml
