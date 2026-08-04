@@ -1,0 +1,22 @@
+{
+  "provider": "carbon-intensity",
+  "sources": [
+    "carbon-intensity-factors-api-openapi.yml",
+    "carbon-intensity-generation-mix-api-openapi.yml",
+    "carbon-intensity-national-intensity-api-openapi.yml",
+    "carbon-intensity-regional-api-openapi.yml",
+    "carbon-intensity-statistics-api-openapi.yml"
+  ],
+  "outputs": [
+    "carbon-intensity-factors-api-openapi.yml",
+    "carbon-intensity-generation-mix-api-openapi.yml",
+    "carbon-intensity-national-intensity-api-openapi.yml",
+    "carbon-intensity-regional-api-openapi.yml",
+    "carbon-intensity-statistics-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
