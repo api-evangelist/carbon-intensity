@@ -260,6 +260,8 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/carbon-intensity/refs/heads/main/json-ld/carbon-intensity-context.jsonld
 common:
+  - type: IssueTracker
+    url: https://github.com/carbon-intensity/api-definitions/issues
   - type: AgenticAccess
     url: agentic-access/carbon-intensity-agentic-access.yml
   - type: DomainSecurity
