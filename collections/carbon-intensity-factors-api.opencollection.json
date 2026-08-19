@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Carbon Intensity Factors API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Factors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get carbon intensity factors by fuel type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/intensity/factors"
+          },
+          "docs": "Returns the carbon intensity factors (gCO2/kWh) for each fuel type used in generation mix calculations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

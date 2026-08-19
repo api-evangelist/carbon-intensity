@@ -1,0 +1,185 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Carbon Intensity Factors National Intensity API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "National Intensity",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get current national carbon intensity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/intensity"
+          },
+          "docs": "Returns current national carbon intensity for Great Britain. Returns data for the half-hour period that includes the current time."
+        },
+        {
+          "info": {
+            "name": "Get national carbon intensity for today",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/intensity/date"
+          },
+          "docs": "Returns national carbon intensity data for all half-hour periods in the current date (today)."
+        },
+        {
+          "info": {
+            "name": "Get national carbon intensity for a specific date",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/intensity/date/:date",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "Date in YYYY-MM-DD format"
+              }
+            ]
+          },
+          "docs": "Returns national carbon intensity data for all half-hour periods on the specified date."
+        },
+        {
+          "info": {
+            "name": "Get national carbon intensity for a specific date and period",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/intensity/date/:date/:period",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "path",
+                "description": "Date in YYYY-MM-DD format"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "path",
+                "description": "Half-hour period number (1-48)"
+              }
+            ]
+          },
+          "docs": "Returns national carbon intensity data for a specific half-hour period on the specified date. Periods are numbered 1-48 representing 30-minute intervals from midnight."
+        },
+        {
+          "info": {
+            "name": "Get national carbon intensity from a specific datetime",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/intensity/:from",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+              }
+            ]
+          },
+          "docs": "Returns national carbon intensity data for the half-hour period that includes the specified datetime."
+        },
+        {
+          "info": {
+            "name": "Get 24-hour forward forecast from a specific datetime",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/intensity/:from/fw24h",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+              }
+            ]
+          },
+          "docs": "Returns national carbon intensity forecast data for the 24 hours following the specified datetime, with 30-minute resolution."
+        },
+        {
+          "info": {
+            "name": "Get 48-hour forward forecast from a specific datetime",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/intensity/:from/fw48h",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+              }
+            ]
+          },
+          "docs": "Returns national carbon intensity forecast data for the 48 hours following the specified datetime, with 30-minute resolution."
+        },
+        {
+          "info": {
+            "name": "Get 24-hour historical data ending at a specific datetime",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/intensity/:from/pt24h",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+              }
+            ]
+          },
+          "docs": "Returns national carbon intensity data for the 24 hours preceding the specified datetime, with 30-minute resolution."
+        },
+        {
+          "info": {
+            "name": "Get national carbon intensity for a date/time range",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/intensity/:from/:to",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+              }
+            ]
+          },
+          "docs": "Returns national carbon intensity data for all half-hour periods between the specified from and to datetimes. Maximum range is 14 days."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

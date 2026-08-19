@@ -1,0 +1,275 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Carbon Intensity Factors Regional API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Regional",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get current carbon intensity for all regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/regional"
+          },
+          "docs": "Returns current carbon intensity and generation mix for all 14 regional DNO boundaries in Great Britain. This is a beta endpoint."
+        },
+        {
+          "info": {
+            "name": "Get current carbon intensity for England",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/regional/england"
+          },
+          "docs": "Returns current carbon intensity and generation mix for England. This is a beta endpoint."
+        },
+        {
+          "info": {
+            "name": "Get current carbon intensity for Scotland",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/regional/scotland"
+          },
+          "docs": "Returns current carbon intensity and generation mix for Scotland. This is a beta endpoint."
+        },
+        {
+          "info": {
+            "name": "Get current carbon intensity for Wales",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/regional/wales"
+          },
+          "docs": "Returns current carbon intensity and generation mix for Wales. This is a beta endpoint."
+        },
+        {
+          "info": {
+            "name": "Get carbon intensity for a specific postcode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/regional/postcode/:postcode",
+            "params": [
+              {
+                "name": "postcode",
+                "value": "",
+                "type": "path",
+                "description": "GB postcode (outward code only, e.g. RG10)"
+              }
+            ]
+          },
+          "docs": "Returns current carbon intensity and generation mix for the DNO region containing the specified postcode. This is a beta endpoint."
+        },
+        {
+          "info": {
+            "name": "Get carbon intensity for a specific region ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/regional/regionid/:regionid",
+            "params": [
+              {
+                "name": "regionid",
+                "value": "",
+                "type": "path",
+                "description": "DNO region ID (1-17)"
+              }
+            ]
+          },
+          "docs": "Returns current carbon intensity and generation mix for the specified DNO region. Region IDs range from 1-17, covering 14 DNO areas plus England (15), Scotland (16), and Wales (17). This is a beta endpoint."
+        },
+        {
+          "info": {
+            "name": "Get regional carbon intensity for a date/time range",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/regional/:from/:to",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+              }
+            ]
+          },
+          "docs": "Returns carbon intensity and generation mix for all regions across the specified date/time range. This is a beta endpoint."
+        },
+        {
+          "info": {
+            "name": "Get 24-hour forward regional intensity forecast by postcode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/regional/intensity/:from/fw24h/postcode/:postcode",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+              },
+              {
+                "name": "postcode",
+                "value": "",
+                "type": "path",
+                "description": "GB postcode (outward code only)"
+              }
+            ]
+          },
+          "docs": "Returns 24-hour forward carbon intensity forecast for the region containing the specified postcode. This is a beta endpoint."
+        },
+        {
+          "info": {
+            "name": "Get 24-hour forward regional intensity forecast by region ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/regional/intensity/:from/fw24h/regionid/:regionid",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+              },
+              {
+                "name": "regionid",
+                "value": "",
+                "type": "path",
+                "description": "DNO region ID (1-17)"
+              }
+            ]
+          },
+          "docs": "Returns 24-hour forward carbon intensity forecast for the specified region. This is a beta endpoint."
+        },
+        {
+          "info": {
+            "name": "Get 48-hour forward regional intensity forecast by postcode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/regional/intensity/:from/fw48h/postcode/:postcode",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+              },
+              {
+                "name": "postcode",
+                "value": "",
+                "type": "path",
+                "description": "GB postcode (outward code only)"
+              }
+            ]
+          },
+          "docs": "Returns 48-hour forward carbon intensity forecast for the region containing the specified postcode. This is a beta endpoint."
+        },
+        {
+          "info": {
+            "name": "Get 48-hour forward regional intensity forecast by region ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/regional/intensity/:from/fw48h/regionid/:regionid",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+              },
+              {
+                "name": "regionid",
+                "value": "",
+                "type": "path",
+                "description": "DNO region ID (1-17)"
+              }
+            ]
+          },
+          "docs": "Returns 48-hour forward carbon intensity forecast for the specified region. This is a beta endpoint."
+        },
+        {
+          "info": {
+            "name": "Get 24-hour historical regional intensity by postcode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/regional/intensity/:from/pt24h/postcode/:postcode",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+              },
+              {
+                "name": "postcode",
+                "value": "",
+                "type": "path",
+                "description": "GB postcode (outward code only)"
+              }
+            ]
+          },
+          "docs": "Returns 24-hour historical carbon intensity data for the region containing the specified postcode. This is a beta endpoint."
+        },
+        {
+          "info": {
+            "name": "Get 24-hour historical regional intensity by region ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/regional/intensity/:from/pt24h/regionid/:regionid",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+              },
+              {
+                "name": "regionid",
+                "value": "",
+                "type": "path",
+                "description": "DNO region ID (1-17)"
+              }
+            ]
+          },
+          "docs": "Returns 24-hour historical carbon intensity data for the specified region. This is a beta endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

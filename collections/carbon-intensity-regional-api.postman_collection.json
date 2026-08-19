@@ -1,0 +1,2492 @@
+{
+  "item": [
+    {
+      "id": "60f03b68-8354-4302-a739-62a43fd46005",
+      "name": "Regional",
+      "description": {
+        "content": "Regional carbon intensity and generation mix data (beta)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ea94c6c7-7972-4a6a-ad70-28fd384ee57f",
+          "name": "Get current carbon intensity for all regions",
+          "request": {
+            "name": "Get current carbon intensity for all regions",
+            "description": {
+              "content": "Returns current carbon intensity and generation mix for all 14 regional DNO boundaries in Great Britain. This is a beta endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "regional"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "79bd689b-51d2-4962-b271-c0f4b9dbcdd3",
+              "name": "Successful response with regional carbon intensity data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"1960-07-31T14:49:28.147Z\",\n      \"to\": \"2018-06-29T05:11:34.919Z\",\n      \"regions\": [\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"from\": \"1985-04-18T05:13:48.149Z\",\n      \"to\": \"1973-10-11T12:00:20.926Z\",\n      \"regions\": [\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47681367-0b95-4262-ba77-6999de6ce69a",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "daffa220-4354-4176-ac89-d2ea48f6a5ee",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3af764eb-c379-45a9-beff-c23a7f80d769",
+          "name": "Get current carbon intensity for England",
+          "request": {
+            "name": "Get current carbon intensity for England",
+            "description": {
+              "content": "Returns current carbon intensity and generation mix for England. This is a beta endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "regional",
+                "england"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e94a568-994b-4050-aef9-6b87345c2b8b",
+              "name": "Successful response with England carbon intensity data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "england"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"2018-01-20T12:00Z\",\n      \"to\": \"2018-01-20T12:30Z\",\n      \"regions\": [\n        {\n          \"regionid\": 15,\n          \"dnoregion\": \"England\",\n          \"shortname\": \"England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": \"gas\",\n              \"perc\": 43.6\n            },\n            {\n              \"fuel\": \"coal\",\n              \"perc\": 0.7\n            },\n            {\n              \"fuel\": \"wind\",\n              \"perc\": 6.8\n            },\n            {\n              \"fuel\": \"solar\",\n              \"perc\": 18.1\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "927059c7-03be-4095-890a-7f2e94004f61",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "england"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ef21877-a86d-4b8d-9957-e910cb44c19c",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "england"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57e7af32-bfe1-4820-ba46-80a30504f0e3",
+          "name": "Get current carbon intensity for Scotland",
+          "request": {
+            "name": "Get current carbon intensity for Scotland",
+            "description": {
+              "content": "Returns current carbon intensity and generation mix for Scotland. This is a beta endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "regional",
+                "scotland"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db64b463-621e-41ce-b3cb-dfb31b194b5e",
+              "name": "Successful response with Scotland carbon intensity data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "scotland"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"2010-09-12T20:02:25.768Z\",\n      \"to\": \"2013-08-16T22:53:45.162Z\",\n      \"regions\": [\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"from\": \"1956-11-16T12:38:22.228Z\",\n      \"to\": \"1984-07-30T19:36:29.659Z\",\n      \"regions\": [\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b501cd69-3107-4d8e-8a33-c50a374dfbb0",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "scotland"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ddbbe927-8787-415a-974e-91f6e52259fa",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "scotland"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e7d99fb-459b-43b1-ae1f-849119790fc4",
+          "name": "Get current carbon intensity for Wales",
+          "request": {
+            "name": "Get current carbon intensity for Wales",
+            "description": {
+              "content": "Returns current carbon intensity and generation mix for Wales. This is a beta endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "regional",
+                "wales"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f0924edd-3892-4f08-9fb4-36ca8d96797a",
+              "name": "Successful response with Wales carbon intensity data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "wales"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"2010-09-12T20:02:25.768Z\",\n      \"to\": \"2013-08-16T22:53:45.162Z\",\n      \"regions\": [\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"from\": \"1956-11-16T12:38:22.228Z\",\n      \"to\": \"1984-07-30T19:36:29.659Z\",\n      \"regions\": [\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24f4b6f2-4f50-4e89-b537-325112165adf",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "wales"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97d29c19-25af-4828-97e8-a25902204208",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "wales"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4caeef3d-f84d-477e-92b4-44dc4ef2ebf8",
+          "name": "Get carbon intensity for a specific postcode",
+          "request": {
+            "name": "Get carbon intensity for a specific postcode",
+            "description": {
+              "content": "Returns current carbon intensity and generation mix for the DNO region containing the specified postcode. This is a beta endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "regional",
+                "postcode",
+                ":postcode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "postcode",
+                  "description": "(Required) GB postcode (outward code only, e.g. RG10)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a0cfbf2-087b-40fb-93bd-e2169a28df1c",
+              "name": "Successful response with regional carbon intensity data for the postcode",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "postcode",
+                    ":postcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "postcode",
+                      "description": "(Required) GB postcode (outward code only, e.g. RG10)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"regionid\": 3,\n      \"dnoregion\": \"Electricity North West\",\n      \"shortname\": \"North West England\",\n      \"postcode\": \"RG10\",\n      \"data\": [\n        {\n          \"from\": \"2018-01-20T12:00Z\",\n          \"to\": \"2018-01-20T12:30Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": \"gas\",\n              \"perc\": 43.6\n            },\n            {\n              \"fuel\": \"wind\",\n              \"perc\": 6.8\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc6d1d75-5cc0-4d8a-b511-ff019746ea0b",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "postcode",
+                    ":postcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "postcode",
+                      "description": "(Required) GB postcode (outward code only, e.g. RG10)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "066da1c1-3032-43ec-8b2c-e5d0c9e18c21",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "postcode",
+                    ":postcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "postcode",
+                      "description": "(Required) GB postcode (outward code only, e.g. RG10)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72a06fb1-6f74-4bb8-8762-39eb8b68f92d",
+          "name": "Get carbon intensity for a specific region ID",
+          "request": {
+            "name": "Get carbon intensity for a specific region ID",
+            "description": {
+              "content": "Returns current carbon intensity and generation mix for the specified DNO region. Region IDs range from 1-17, covering 14 DNO areas plus England (15), Scotland (16), and Wales (17). This is a beta endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "regional",
+                "regionid",
+                ":regionid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "regionid",
+                  "description": "(Required) DNO region ID (1-17)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d29991f8-8076-41da-ba72-f466a26fdb08",
+              "name": "Successful response with regional carbon intensity data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "regionid",
+                    ":regionid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "regionid",
+                      "description": "(Required) DNO region ID (1-17)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"regionid\": 3,\n      \"dnoregion\": \"Electricity North West\",\n      \"shortname\": \"North West England\",\n      \"data\": [\n        {\n          \"from\": \"2018-01-20T12:00Z\",\n          \"to\": \"2018-01-20T12:30Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": \"gas\",\n              \"perc\": 43.6\n            },\n            {\n              \"fuel\": \"wind\",\n              \"perc\": 6.8\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "172ff82c-60cd-4d0d-a5fb-1359b9e1fa8c",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "regionid",
+                    ":regionid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "regionid",
+                      "description": "(Required) DNO region ID (1-17)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67418640-c083-4da6-9498-bdf9f616cc05",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "regionid",
+                    ":regionid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "regionid",
+                      "description": "(Required) DNO region ID (1-17)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dcffacdb-3d20-446c-b9ee-9ac6899f72e1",
+          "name": "Get regional carbon intensity for a date/time range",
+          "request": {
+            "name": "Get regional carbon intensity for a date/time range",
+            "description": {
+              "content": "Returns carbon intensity and generation mix for all regions across the specified date/time range. This is a beta endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "regional",
+                ":from",
+                ":to"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "from",
+                  "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "to",
+                  "description": "(Required) End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9309bf2d-0e5d-412f-9768-92ed82792119",
+              "name": "Successful response with regional carbon intensity data for the range",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    ":from",
+                    ":to"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "to",
+                      "description": "(Required) End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"2010-09-12T20:02:25.768Z\",\n      \"to\": \"2013-08-16T22:53:45.162Z\",\n      \"regions\": [\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"from\": \"1956-11-16T12:38:22.228Z\",\n      \"to\": \"1984-07-30T19:36:29.659Z\",\n      \"regions\": [\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"regionid\": 3,\n          \"dnoregion\": \"Electricity North West\",\n          \"shortname\": \"North West England\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f1da77c-7cd1-438f-a4dd-383b58d7146d",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    ":from",
+                    ":to"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "to",
+                      "description": "(Required) End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "35606c51-b89b-482a-9ff2-597320bfee2e",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    ":from",
+                    ":to"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "to",
+                      "description": "(Required) End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b88e4e5c-e143-408a-80a8-2edcaa20bf73",
+          "name": "Get 24-hour forward regional intensity forecast by postcode",
+          "request": {
+            "name": "Get 24-hour forward regional intensity forecast by postcode",
+            "description": {
+              "content": "Returns 24-hour forward carbon intensity forecast for the region containing the specified postcode. This is a beta endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "regional",
+                "intensity",
+                ":from",
+                "fw24h",
+                "postcode",
+                ":postcode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "from",
+                  "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "postcode",
+                  "description": "(Required) GB postcode (outward code only)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "37a1a494-2600-4e00-a408-ea76058a325a",
+              "name": "Successful response with 24-hour regional forecast data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "fw24h",
+                    "postcode",
+                    ":postcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "postcode",
+                      "description": "(Required) GB postcode (outward code only)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"regionid\": 3,\n      \"dnoregion\": \"Electricity North West\",\n      \"shortname\": \"North West England\",\n      \"postcode\": \"RG10\",\n      \"data\": [\n        {\n          \"from\": \"2022-03-13T10:22:15.994Z\",\n          \"to\": \"1968-12-03T21:45:54.686Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"from\": \"2011-05-26T23:52:31.214Z\",\n          \"to\": \"1988-05-05T22:18:07.245Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"regionid\": 3,\n      \"dnoregion\": \"Electricity North West\",\n      \"shortname\": \"North West England\",\n      \"postcode\": \"RG10\",\n      \"data\": [\n        {\n          \"from\": \"2018-07-17T11:06:06.325Z\",\n          \"to\": \"2000-09-11T12:52:33.950Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"from\": \"2015-02-27T04:57:57.642Z\",\n          \"to\": \"1975-05-29T19:45:21.811Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21f212cb-662f-4df8-ba51-b923a9aa4ac8",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "fw24h",
+                    "postcode",
+                    ":postcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "postcode",
+                      "description": "(Required) GB postcode (outward code only)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "721b6326-2dd5-4cd3-9e4e-10395a08e7fc",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "fw24h",
+                    "postcode",
+                    ":postcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "postcode",
+                      "description": "(Required) GB postcode (outward code only)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3da945b-8b17-4527-894d-592ea8c65bea",
+          "name": "Get 24-hour forward regional intensity forecast by region ID",
+          "request": {
+            "name": "Get 24-hour forward regional intensity forecast by region ID",
+            "description": {
+              "content": "Returns 24-hour forward carbon intensity forecast for the specified region. This is a beta endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "regional",
+                "intensity",
+                ":from",
+                "fw24h",
+                "regionid",
+                ":regionid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "from",
+                  "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "regionid",
+                  "description": "(Required) DNO region ID (1-17)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cbe202c4-65f5-4b43-94ab-1ebb949ce0a7",
+              "name": "Successful response with 24-hour regional forecast data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "fw24h",
+                    "regionid",
+                    ":regionid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "regionid",
+                      "description": "(Required) DNO region ID (1-17)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"regionid\": 3,\n      \"dnoregion\": \"Electricity North West\",\n      \"shortname\": \"North West England\",\n      \"data\": [\n        {\n          \"from\": \"1996-01-19T07:36:01.205Z\",\n          \"to\": \"1986-08-12T02:05:04.155Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"from\": \"1973-07-09T21:41:05.704Z\",\n          \"to\": \"1950-03-03T22:00:40.545Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"regionid\": 3,\n      \"dnoregion\": \"Electricity North West\",\n      \"shortname\": \"North West England\",\n      \"data\": [\n        {\n          \"from\": \"1954-05-09T09:47:47.307Z\",\n          \"to\": \"1959-04-01T08:27:40.481Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"from\": \"1997-08-20T07:13:48.949Z\",\n          \"to\": \"1952-07-14T20:37:16.879Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a5ae6f3-0ac8-4e75-a71c-05a180c956fd",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "fw24h",
+                    "regionid",
+                    ":regionid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "regionid",
+                      "description": "(Required) DNO region ID (1-17)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8058bb2-6ce5-463d-82a4-3b4b18909142",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "fw24h",
+                    "regionid",
+                    ":regionid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "regionid",
+                      "description": "(Required) DNO region ID (1-17)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3996a93a-2d7f-45d3-9402-e765af8f7c89",
+          "name": "Get 48-hour forward regional intensity forecast by postcode",
+          "request": {
+            "name": "Get 48-hour forward regional intensity forecast by postcode",
+            "description": {
+              "content": "Returns 48-hour forward carbon intensity forecast for the region containing the specified postcode. This is a beta endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "regional",
+                "intensity",
+                ":from",
+                "fw48h",
+                "postcode",
+                ":postcode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "from",
+                  "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "postcode",
+                  "description": "(Required) GB postcode (outward code only)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12b7d33c-1802-48a3-b2d2-5afe33ae4911",
+              "name": "Successful response with 48-hour regional forecast data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "fw48h",
+                    "postcode",
+                    ":postcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "postcode",
+                      "description": "(Required) GB postcode (outward code only)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"regionid\": 3,\n      \"dnoregion\": \"Electricity North West\",\n      \"shortname\": \"North West England\",\n      \"postcode\": \"RG10\",\n      \"data\": [\n        {\n          \"from\": \"2016-03-05T19:54:30.989Z\",\n          \"to\": \"1959-08-11T15:35:42.132Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"from\": \"1952-11-11T11:33:57.152Z\",\n          \"to\": \"1947-03-24T16:22:02.055Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"regionid\": 3,\n      \"dnoregion\": \"Electricity North West\",\n      \"shortname\": \"North West England\",\n      \"postcode\": \"RG10\",\n      \"data\": [\n        {\n          \"from\": \"1960-04-29T22:36:04.422Z\",\n          \"to\": \"1972-09-11T11:11:32.465Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"from\": \"2021-07-07T21:51:33.072Z\",\n          \"to\": \"2015-05-24T12:58:56.781Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "931e714a-2cd7-4c18-9437-a4ce1ae273ea",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "fw48h",
+                    "postcode",
+                    ":postcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "postcode",
+                      "description": "(Required) GB postcode (outward code only)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b9d0544-478a-4341-8465-ea91776017d5",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "fw48h",
+                    "postcode",
+                    ":postcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "postcode",
+                      "description": "(Required) GB postcode (outward code only)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d6ed9f5-4960-45fd-8849-e3900fdd3be2",
+          "name": "Get 48-hour forward regional intensity forecast by region ID",
+          "request": {
+            "name": "Get 48-hour forward regional intensity forecast by region ID",
+            "description": {
+              "content": "Returns 48-hour forward carbon intensity forecast for the specified region. This is a beta endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "regional",
+                "intensity",
+                ":from",
+                "fw48h",
+                "regionid",
+                ":regionid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "from",
+                  "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "regionid",
+                  "description": "(Required) DNO region ID (1-17)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a129e58-bdb9-4167-a8c4-b9fa6bada50b",
+              "name": "Successful response with 48-hour regional forecast data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "fw48h",
+                    "regionid",
+                    ":regionid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "regionid",
+                      "description": "(Required) DNO region ID (1-17)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"regionid\": 3,\n      \"dnoregion\": \"Electricity North West\",\n      \"shortname\": \"North West England\",\n      \"data\": [\n        {\n          \"from\": \"1995-06-14T23:28:17.351Z\",\n          \"to\": \"1968-03-19T07:51:19.020Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"from\": \"1958-07-01T10:56:17.205Z\",\n          \"to\": \"1993-12-10T00:22:43.530Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"regionid\": 3,\n      \"dnoregion\": \"Electricity North West\",\n      \"shortname\": \"North West England\",\n      \"data\": [\n        {\n          \"from\": \"1971-04-18T01:36:38.248Z\",\n          \"to\": \"1957-09-27T19:07:59.612Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"from\": \"2010-07-15T00:57:43.873Z\",\n          \"to\": \"2003-09-20T08:13:09.527Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e188e6de-69fd-47a9-90d0-9697f624bf54",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "fw48h",
+                    "regionid",
+                    ":regionid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "regionid",
+                      "description": "(Required) DNO region ID (1-17)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "def3f33d-18b1-4f94-b426-df4c87d42801",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "fw48h",
+                    "regionid",
+                    ":regionid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "regionid",
+                      "description": "(Required) DNO region ID (1-17)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a077f85f-c20b-4e3b-9f5a-16f72777e192",
+          "name": "Get 24-hour historical regional intensity by postcode",
+          "request": {
+            "name": "Get 24-hour historical regional intensity by postcode",
+            "description": {
+              "content": "Returns 24-hour historical carbon intensity data for the region containing the specified postcode. This is a beta endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "regional",
+                "intensity",
+                ":from",
+                "pt24h",
+                "postcode",
+                ":postcode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "from",
+                  "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "postcode",
+                  "description": "(Required) GB postcode (outward code only)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92fe3598-bb58-418d-8be4-9ce4943ee038",
+              "name": "Successful response with 24-hour historical regional data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "pt24h",
+                    "postcode",
+                    ":postcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "postcode",
+                      "description": "(Required) GB postcode (outward code only)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"regionid\": 3,\n      \"dnoregion\": \"Electricity North West\",\n      \"shortname\": \"North West England\",\n      \"postcode\": \"RG10\",\n      \"data\": [\n        {\n          \"from\": \"2016-03-05T19:54:30.989Z\",\n          \"to\": \"1959-08-11T15:35:42.132Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"from\": \"1952-11-11T11:33:57.152Z\",\n          \"to\": \"1947-03-24T16:22:02.055Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"regionid\": 3,\n      \"dnoregion\": \"Electricity North West\",\n      \"shortname\": \"North West England\",\n      \"postcode\": \"RG10\",\n      \"data\": [\n        {\n          \"from\": \"1960-04-29T22:36:04.422Z\",\n          \"to\": \"1972-09-11T11:11:32.465Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"from\": \"2021-07-07T21:51:33.072Z\",\n          \"to\": \"2015-05-24T12:58:56.781Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f73bf95a-627b-405b-8820-001f2823d6d3",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "pt24h",
+                    "postcode",
+                    ":postcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "postcode",
+                      "description": "(Required) GB postcode (outward code only)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d369d73-c33e-4b34-87ad-3dd0e7bc2371",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "pt24h",
+                    "postcode",
+                    ":postcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "postcode",
+                      "description": "(Required) GB postcode (outward code only)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7fa1c8dc-d984-4a19-9130-01fe2fa6ba94",
+          "name": "Get 24-hour historical regional intensity by region ID",
+          "request": {
+            "name": "Get 24-hour historical regional intensity by region ID",
+            "description": {
+              "content": "Returns 24-hour historical carbon intensity data for the specified region. This is a beta endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "regional",
+                "intensity",
+                ":from",
+                "pt24h",
+                "regionid",
+                ":regionid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "from",
+                  "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "regionid",
+                  "description": "(Required) DNO region ID (1-17)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c61df759-74ae-4be6-b4c8-387393759c76",
+              "name": "Successful response with 24-hour historical regional data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "pt24h",
+                    "regionid",
+                    ":regionid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "regionid",
+                      "description": "(Required) DNO region ID (1-17)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"regionid\": 3,\n      \"dnoregion\": \"Electricity North West\",\n      \"shortname\": \"North West England\",\n      \"data\": [\n        {\n          \"from\": \"1995-06-14T23:28:17.351Z\",\n          \"to\": \"1968-03-19T07:51:19.020Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"from\": \"1958-07-01T10:56:17.205Z\",\n          \"to\": \"1993-12-10T00:22:43.530Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"regionid\": 3,\n      \"dnoregion\": \"Electricity North West\",\n      \"shortname\": \"North West England\",\n      \"data\": [\n        {\n          \"from\": \"1971-04-18T01:36:38.248Z\",\n          \"to\": \"1957-09-27T19:07:59.612Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"from\": \"2010-07-15T00:57:43.873Z\",\n          \"to\": \"2003-09-20T08:13:09.527Z\",\n          \"intensity\": {\n            \"forecast\": 266,\n            \"index\": \"moderate\"\n          },\n          \"generationmix\": [\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"fuel\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"perc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "436cfadb-4f5b-4d00-a2bc-b3bd7b7d1807",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "pt24h",
+                    "regionid",
+                    ":regionid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "regionid",
+                      "description": "(Required) DNO region ID (1-17)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1498c74-6bfd-4a0a-b0be-dbb1b6d79338",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regional",
+                    "intensity",
+                    ":from",
+                    "pt24h",
+                    "regionid",
+                    ":regionid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "regionid",
+                      "description": "(Required) DNO region ID (1-17)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.carbonintensity.org.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2c9bc17d-4712-4d32-a418-c58c0e1cba3e",
+    "name": "Carbon Intensity Factors Regional API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Carbon Intensity API is the official carbon intensity forecasting service for Great Britain, developed by the National Energy System Operator (NESO) in partnership with EDF, the University of Oxford, and WWF. It provides real-time, forecast, and historical carbon intensity data alongside generation mix information for GB electricity, with 96+ hour forecasts and 30-minute temporal resolution across 14 regional DNO boundaries. The API is publicly accessible with no authentication required and is licensed under CC BY 4.0.\n\nContact Support:\n Name: Carbon Intensity API Support\n Email: lyndon.ruff@nationalgrideso.com",
+      "type": "text/plain"
+    }
+  }
+}

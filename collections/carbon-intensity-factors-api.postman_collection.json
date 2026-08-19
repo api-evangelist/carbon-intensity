@@ -1,0 +1,176 @@
+{
+  "item": [
+    {
+      "id": "ba755d43-2a3b-4dfb-a7be-47472f9d0264",
+      "name": "Factors",
+      "description": {
+        "content": "Carbon intensity factors by fuel type",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b395e3c3-bd8a-4318-b9b5-9632ca41f7ed",
+          "name": "Get carbon intensity factors by fuel type",
+          "request": {
+            "name": "Get carbon intensity factors by fuel type",
+            "description": {
+              "content": "Returns the carbon intensity factors (gCO2/kWh) for each fuel type used in generation mix calculations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "intensity",
+                "factors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "044f63e5-5e09-4177-ae0f-379df97477a2",
+              "name": "Successful response with carbon intensity factors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    "factors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"Biomass\": 120,\n      \"Coal\": 937,\n      \"Dutch Imports\": 474,\n      \"French Imports\": 53,\n      \"Gas (Combined Cycle)\": 394,\n      \"Gas (Open Cycle)\": 651,\n      \"Hydro\": 0,\n      \"Irish Imports\": 458,\n      \"Nuclear\": 0,\n      \"Oil\": 935,\n      \"Other\": 300,\n      \"Pumped Storage\": 0,\n      \"Solar\": 0,\n      \"Wind\": 0\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43d5fabc-7394-4c69-aa45-f1fa28abd135",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    "factors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "075ae4b5-4918-4649-9ba8-1d15781f8409",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    "factors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.carbonintensity.org.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f8e43939-2e53-4de9-9e4f-8882892bd5a0",
+    "name": "Carbon Intensity Factors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Carbon Intensity API is the official carbon intensity forecasting service for Great Britain, developed by the National Energy System Operator (NESO) in partnership with EDF, the University of Oxford, and WWF. It provides real-time, forecast, and historical carbon intensity data alongside generation mix information for GB electricity, with 96+ hour forecasts and 30-minute temporal resolution across 14 regional DNO boundaries. The API is publicly accessible with no authentication required and is licensed under CC BY 4.0.\n\nContact Support:\n Name: Carbon Intensity API Support\n Email: lyndon.ruff@nationalgrideso.com",
+      "type": "text/plain"
+    }
+  }
+}

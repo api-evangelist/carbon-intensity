@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Carbon Intensity Factors Generation Mix API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Generation Mix",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get current national generation mix",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/generation"
+          },
+          "docs": "Returns the current national electricity generation mix showing the percentage contribution of each fuel type. This is a beta endpoint."
+        },
+        {
+          "info": {
+            "name": "Get national generation mix for a date/time range",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/generation/:from/:to",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+              }
+            ]
+          },
+          "docs": "Returns national electricity generation mix data for all half-hour periods between the specified from and to datetimes. This is a beta endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

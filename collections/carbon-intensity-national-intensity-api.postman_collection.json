@@ -1,0 +1,1632 @@
+{
+  "item": [
+    {
+      "id": "1ed3dc75-3276-42f6-bbd1-90ef7860d5e0",
+      "name": "National Intensity",
+      "description": {
+        "content": "National carbon intensity data for Great Britain",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fabe5309-28c8-4a58-8421-9b39f3a3b5a0",
+          "name": "Get current national carbon intensity",
+          "request": {
+            "name": "Get current national carbon intensity",
+            "description": {
+              "content": "Returns current national carbon intensity for Great Britain. Returns data for the half-hour period that includes the current time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "intensity"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e72e0ef1-e77c-4d8c-a99a-31d2cfc29f0b",
+              "name": "Successful response with current carbon intensity data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"2018-01-20T12:00Z\",\n      \"to\": \"2018-01-20T12:30Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e2e5d3c-44fa-4a58-9523-ec3e76f599c4",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58ace7ad-c4d2-49d3-8875-ff62dd0b29ab",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c3f70aa-0fe7-4bcb-b03e-ccee7cca156c",
+          "name": "Get national carbon intensity for today",
+          "request": {
+            "name": "Get national carbon intensity for today",
+            "description": {
+              "content": "Returns national carbon intensity data for all half-hour periods in the current date (today).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "intensity",
+                "date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03ad33fc-85c1-4237-bc03-f1fd819074ca",
+              "name": "Successful response with today's carbon intensity data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    "date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"1979-02-16T14:12:50.257Z\",\n      \"to\": \"2024-12-30T22:52:33.388Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    },\n    {\n      \"from\": \"2009-04-30T12:21:29.258Z\",\n      \"to\": \"1964-09-20T03:27:15.613Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7ab3ff4-a046-40ba-b161-bf1886f09e02",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    "date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b2f2f78a-1bad-4e1e-a089-d9d9a81cdaef",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    "date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26c89618-049e-45f0-8836-532fb6dba729",
+          "name": "Get national carbon intensity for a specific date",
+          "request": {
+            "name": "Get national carbon intensity for a specific date",
+            "description": {
+              "content": "Returns national carbon intensity data for all half-hour periods on the specified date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "intensity",
+                "date",
+                ":date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<date>",
+                  "key": "date",
+                  "description": "(Required) Date in YYYY-MM-DD format"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "58a3365c-0acf-43d9-a051-ec7171047d3b",
+              "name": "Successful response with carbon intensity data for the specified date",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    "date",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<date>",
+                      "key": "date",
+                      "description": "(Required) Date in YYYY-MM-DD format"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"2011-01-20T03:09:27.573Z\",\n      \"to\": \"1968-08-23T17:37:43.051Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    },\n    {\n      \"from\": \"1976-07-01T22:36:11.588Z\",\n      \"to\": \"1988-05-08T09:43:48.295Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be8c55fe-ed56-4b72-9b51-af2262bb5ccb",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    "date",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<date>",
+                      "key": "date",
+                      "description": "(Required) Date in YYYY-MM-DD format"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ded598c-cfd0-447f-a226-378d24b18774",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    "date",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<date>",
+                      "key": "date",
+                      "description": "(Required) Date in YYYY-MM-DD format"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec345852-8728-48ae-ad93-27c0b9b0b2fe",
+          "name": "Get national carbon intensity for a specific date and period",
+          "request": {
+            "name": "Get national carbon intensity for a specific date and period",
+            "description": {
+              "content": "Returns national carbon intensity data for a specific half-hour period on the specified date. Periods are numbered 1-48 representing 30-minute intervals from midnight.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "intensity",
+                "date",
+                ":date",
+                ":period"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<date>",
+                  "key": "date",
+                  "description": "(Required) Date in YYYY-MM-DD format"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "period",
+                  "description": "(Required) Half-hour period number (1-48)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "83bfa574-687b-458c-8f64-a126bcf56833",
+              "name": "Successful response with carbon intensity data for the specified date and period",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    "date",
+                    ":date",
+                    ":period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<date>",
+                      "key": "date",
+                      "description": "(Required) Date in YYYY-MM-DD format"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "period",
+                      "description": "(Required) Half-hour period number (1-48)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"2011-01-20T03:09:27.573Z\",\n      \"to\": \"1968-08-23T17:37:43.051Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    },\n    {\n      \"from\": \"1976-07-01T22:36:11.588Z\",\n      \"to\": \"1988-05-08T09:43:48.295Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ced4de3-ead3-499c-b78e-b6661cc39564",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    "date",
+                    ":date",
+                    ":period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<date>",
+                      "key": "date",
+                      "description": "(Required) Date in YYYY-MM-DD format"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "period",
+                      "description": "(Required) Half-hour period number (1-48)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95cc9176-023c-47af-9d52-ed80165457d2",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    "date",
+                    ":date",
+                    ":period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<date>",
+                      "key": "date",
+                      "description": "(Required) Date in YYYY-MM-DD format"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "period",
+                      "description": "(Required) Half-hour period number (1-48)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "447e9c8d-9767-43e9-9168-8eaba43365b7",
+          "name": "Get national carbon intensity from a specific datetime",
+          "request": {
+            "name": "Get national carbon intensity from a specific datetime",
+            "description": {
+              "content": "Returns national carbon intensity data for the half-hour period that includes the specified datetime.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "intensity",
+                ":from"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "from",
+                  "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b78da14-4349-4171-9729-300339783e8b",
+              "name": "Successful response with carbon intensity data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    ":from"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"2011-01-20T03:09:27.573Z\",\n      \"to\": \"1968-08-23T17:37:43.051Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    },\n    {\n      \"from\": \"1976-07-01T22:36:11.588Z\",\n      \"to\": \"1988-05-08T09:43:48.295Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4f3ec46-ca93-4af7-a972-458ccf17af58",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    ":from"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25e2230f-8c86-4f41-b50d-df4ad415c014",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    ":from"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2cbd675c-13d1-4e53-a46d-82791699edd9",
+          "name": "Get 24-hour forward forecast from a specific datetime",
+          "request": {
+            "name": "Get 24-hour forward forecast from a specific datetime",
+            "description": {
+              "content": "Returns national carbon intensity forecast data for the 24 hours following the specified datetime, with 30-minute resolution.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "intensity",
+                ":from",
+                "fw24h"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "from",
+                  "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "297bc5bf-c863-4827-a434-9efdaca3cdb9",
+              "name": "Successful response with 24-hour forward forecast data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    ":from",
+                    "fw24h"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"2011-01-20T03:09:27.573Z\",\n      \"to\": \"1968-08-23T17:37:43.051Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    },\n    {\n      \"from\": \"1976-07-01T22:36:11.588Z\",\n      \"to\": \"1988-05-08T09:43:48.295Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5064fff1-426f-4098-96c2-3b76a47c0457",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    ":from",
+                    "fw24h"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "deed2ddd-370b-4a51-9d98-95af1384e192",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    ":from",
+                    "fw24h"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3907425-0d32-40a8-a633-d7c528b91825",
+          "name": "Get 48-hour forward forecast from a specific datetime",
+          "request": {
+            "name": "Get 48-hour forward forecast from a specific datetime",
+            "description": {
+              "content": "Returns national carbon intensity forecast data for the 48 hours following the specified datetime, with 30-minute resolution.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "intensity",
+                ":from",
+                "fw48h"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "from",
+                  "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e2c7fa4-60fe-44e0-b13e-e8a0598bc9a8",
+              "name": "Successful response with 48-hour forward forecast data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    ":from",
+                    "fw48h"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"2011-01-20T03:09:27.573Z\",\n      \"to\": \"1968-08-23T17:37:43.051Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    },\n    {\n      \"from\": \"1976-07-01T22:36:11.588Z\",\n      \"to\": \"1988-05-08T09:43:48.295Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a5a9876-b44d-4985-bfbc-b38106ba2d85",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    ":from",
+                    "fw48h"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06399ac8-ac21-428a-936a-1f0ef8a83a30",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    ":from",
+                    "fw48h"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7795cd0-1070-4b89-9e5d-99c13422ac6b",
+          "name": "Get 24-hour historical data ending at a specific datetime",
+          "request": {
+            "name": "Get 24-hour historical data ending at a specific datetime",
+            "description": {
+              "content": "Returns national carbon intensity data for the 24 hours preceding the specified datetime, with 30-minute resolution.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "intensity",
+                ":from",
+                "pt24h"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "from",
+                  "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c3fc1aa8-fa59-477b-9c83-ae6d75f92e7c",
+              "name": "Successful response with 24-hour historical data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    ":from",
+                    "pt24h"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"2011-01-20T03:09:27.573Z\",\n      \"to\": \"1968-08-23T17:37:43.051Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    },\n    {\n      \"from\": \"1976-07-01T22:36:11.588Z\",\n      \"to\": \"1988-05-08T09:43:48.295Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bafac16c-90a9-43c8-9240-1f51e6a47123",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    ":from",
+                    "pt24h"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48fcfd0f-4c9a-4264-9840-5e54aa570f1c",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    ":from",
+                    "pt24h"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28504427-e1d8-4a3e-8bae-35bf72f75b48",
+          "name": "Get national carbon intensity for a date/time range",
+          "request": {
+            "name": "Get national carbon intensity for a date/time range",
+            "description": {
+              "content": "Returns national carbon intensity data for all half-hour periods between the specified from and to datetimes. Maximum range is 14 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "intensity",
+                ":from",
+                ":to"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "from",
+                  "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "to",
+                  "description": "(Required) End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f5bbbb31-dd04-40ab-b854-73d753491393",
+              "name": "Successful response with carbon intensity data for the specified range",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    ":from",
+                    ":to"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "to",
+                      "description": "(Required) End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"2011-01-20T03:09:27.573Z\",\n      \"to\": \"1968-08-23T17:37:43.051Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    },\n    {\n      \"from\": \"1976-07-01T22:36:11.588Z\",\n      \"to\": \"1988-05-08T09:43:48.295Z\",\n      \"intensity\": {\n        \"forecast\": 266,\n        \"actual\": 263,\n        \"index\": \"moderate\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4245afd1-1cdf-4397-8bd4-727859e3dbed",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    ":from",
+                    ":to"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "to",
+                      "description": "(Required) End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01a0c66e-745e-4131-9f62-5e30e4fc7842",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intensity",
+                    ":from",
+                    ":to"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "to",
+                      "description": "(Required) End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.carbonintensity.org.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "aaf9bae8-0730-4173-a490-9b7079b3d8c1",
+    "name": "Carbon Intensity Factors National Intensity API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Carbon Intensity API is the official carbon intensity forecasting service for Great Britain, developed by the National Energy System Operator (NESO) in partnership with EDF, the University of Oxford, and WWF. It provides real-time, forecast, and historical carbon intensity data alongside generation mix information for GB electricity, with 96+ hour forecasts and 30-minute temporal resolution across 14 regional DNO boundaries. The API is publicly accessible with no authentication required and is licensed under CC BY 4.0.\n\nContact Support:\n Name: Carbon Intensity API Support\n Email: lyndon.ruff@nationalgrideso.com",
+      "type": "text/plain"
+    }
+  }
+}

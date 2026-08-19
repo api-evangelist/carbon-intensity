@@ -1,0 +1,380 @@
+{
+  "item": [
+    {
+      "id": "d1d6601b-8da0-4491-aa58-a59551844780",
+      "name": "Generation Mix",
+      "description": {
+        "content": "Electricity generation mix data (beta)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c8c01763-61d7-4622-be96-fd3679720058",
+          "name": "Get current national generation mix",
+          "request": {
+            "name": "Get current national generation mix",
+            "description": {
+              "content": "Returns the current national electricity generation mix showing the percentage contribution of each fuel type. This is a beta endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "generation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f7f00775-12dc-4265-8743-11ebf7c5951d",
+              "name": "Successful response with current generation mix",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"2018-01-20T12:00Z\",\n      \"to\": \"2018-01-20T12:30Z\",\n      \"generationmix\": [\n        {\n          \"fuel\": \"gas\",\n          \"perc\": 43.6\n        },\n        {\n          \"fuel\": \"coal\",\n          \"perc\": 0.7\n        },\n        {\n          \"fuel\": \"biomass\",\n          \"perc\": 4.2\n        },\n        {\n          \"fuel\": \"nuclear\",\n          \"perc\": 17.6\n        },\n        {\n          \"fuel\": \"hydro\",\n          \"perc\": 1.1\n        },\n        {\n          \"fuel\": \"imports\",\n          \"perc\": 6.5\n        },\n        {\n          \"fuel\": \"other\",\n          \"perc\": 0.3\n        },\n        {\n          \"fuel\": \"wind\",\n          \"perc\": 6.8\n        },\n        {\n          \"fuel\": \"solar\",\n          \"perc\": 18.1\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "589713ea-6226-49da-b77d-11c2d9896ce7",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "acfa22d4-e53a-4832-af9d-9a769a2b0507",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe5d633b-9cd7-4bee-8f40-83aeed7941bc",
+          "name": "Get national generation mix for a date/time range",
+          "request": {
+            "name": "Get national generation mix for a date/time range",
+            "description": {
+              "content": "Returns national electricity generation mix data for all half-hour periods between the specified from and to datetimes. This is a beta endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "generation",
+                ":from",
+                ":to"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "from",
+                  "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<dateTime>",
+                  "key": "to",
+                  "description": "(Required) End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "abd00e8f-eedf-47cc-9083-7b13abfe15d3",
+              "name": "Successful response with generation mix data for the specified range",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    ":from",
+                    ":to"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "to",
+                      "description": "(Required) End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"from\": \"1988-09-30T06:51:31.957Z\",\n      \"to\": \"2019-05-26T07:16:42.909Z\",\n      \"generationmix\": [\n        {\n          \"fuel\": \"gas\",\n          \"perc\": 43.6\n        },\n        {\n          \"fuel\": \"gas\",\n          \"perc\": 43.6\n        }\n      ]\n    },\n    {\n      \"from\": \"1947-05-12T16:14:43.132Z\",\n      \"to\": \"2010-02-26T06:11:14.964Z\",\n      \"generationmix\": [\n        {\n          \"fuel\": \"gas\",\n          \"perc\": 43.6\n        },\n        {\n          \"fuel\": \"gas\",\n          \"perc\": 43.6\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d28f1936-70b7-4424-a35b-82f3863946f1",
+              "name": "Bad request - invalid parameters or path",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    ":from",
+                    ":to"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "to",
+                      "description": "(Required) End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400 Bad Request\",\n    \"message\": \"Please enter a valid path e.g. /intensity/\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "234bbc12-6b1b-4339-aa41-090464350e0e",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "generation",
+                    ":from",
+                    ":to"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "from",
+                      "description": "(Required) Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<dateTime>",
+                      "key": "to",
+                      "description": "(Required) End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"500 Internal Server Error\",\n    \"message\": \"Internal Server Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.carbonintensity.org.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "519c48d6-583f-4e0f-b374-8bdc41e99b8f",
+    "name": "Carbon Intensity Factors Generation Mix API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Carbon Intensity API is the official carbon intensity forecasting service for Great Britain, developed by the National Energy System Operator (NESO) in partnership with EDF, the University of Oxford, and WWF. It provides real-time, forecast, and historical carbon intensity data alongside generation mix information for GB electricity, with 96+ hour forecasts and 30-minute temporal resolution across 14 regional DNO boundaries. The API is publicly accessible with no authentication required and is licensed under CC BY 4.0.\n\nContact Support:\n Name: Carbon Intensity API Support\n Email: lyndon.ruff@nationalgrideso.com",
+      "type": "text/plain"
+    }
+  }
+}

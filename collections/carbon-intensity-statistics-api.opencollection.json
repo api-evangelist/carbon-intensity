@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Carbon Intensity Factors Statistics API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Statistics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get carbon intensity statistics for a date/time range",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/intensity/stats/:from/:to",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+              }
+            ]
+          },
+          "docs": "Returns aggregated carbon intensity statistics (min, max, average) for the specified date/time range."
+        },
+        {
+          "info": {
+            "name": "Get blocked carbon intensity statistics for a date/time range",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.carbonintensity.org.uk/intensity/stats/:from/:to/:block",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "path",
+                "description": "Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "path",
+                "description": "End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z"
+              },
+              {
+                "name": "block",
+                "value": "",
+                "type": "path",
+                "description": "Block size in hours (1-24)"
+              }
+            ]
+          },
+          "docs": "Returns aggregated carbon intensity statistics (min, max, average) for the specified date/time range, grouped into blocks of the specified number of hours."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
