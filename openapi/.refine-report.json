@@ -1,11 +1,7 @@
 {
   "provider": "carbon-intensity",
   "sources": [
-    "carbon-intensity-factors-api-openapi.yml",
-    "carbon-intensity-generation-mix-api-openapi.yml",
-    "carbon-intensity-national-intensity-api-openapi.yml",
-    "carbon-intensity-regional-api-openapi.yml",
-    "carbon-intensity-statistics-api-openapi.yml"
+    "_original/carbon-intensity-openapi.yml"
   ],
   "outputs": [
     "carbon-intensity-factors-api-openapi.yml",
@@ -17,6 +13,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "carbon-intensity-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "carbon-intensity-factors-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "carbon-intensity-generation-mix-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "carbon-intensity-national-intensity-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "carbon-intensity-regional-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "carbon-intensity-statistics-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

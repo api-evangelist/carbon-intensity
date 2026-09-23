@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Carbon Intensity Factors Generation Mix API
-  description: The Carbon Intensity API is the official carbon intensity forecasting service for Great Britain, developed by the National Energy System Operator (NESO) in partnership with EDF, the University of Oxford, and WWF. It provides real-time, forecast, and historical carbon intensity data alongside generation mix information for GB electricity, with 96+ hour forecasts and 30-minute temporal resolution across 14 regional DNO boundaries. The API is publicly accessible with no authentication required and is licensed under CC BY 4.0.
+  title: Carbon Intensity Generation Mix API
+  description: The Carbon Intensity API is the official carbon intensity forecasting service for Great Britain, developed by the National Energy System Operator (NESO) in partnership with EDF, the University of Oxford, and WWF.
   version: '2.0'
   contact:
     name: Carbon Intensity API Support
@@ -81,7 +81,38 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 components:
+  parameters:
+    ToDatetime:
+      name: to
+      in: path
+      required: true
+      description: 'End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:30Z
+    FromDatetime:
+      name: from
+      in: path
+      required: true
+      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:00Z
   schemas:
+    Error:
+      type: object
+      description: Error response
+      properties:
+        code:
+          type: string
+          description: HTTP status code and description
+          example: 400 Bad Request
+        message:
+          type: string
+          description: Human-readable error message
+          example: Please enter a valid path e.g. /intensity/
     GenerationMixItem:
       type: object
       description: Generation percentage for a single fuel type
@@ -107,6 +138,15 @@ components:
           minimum: 0
           maximum: 100
           example: 43.6
+    GenerationResponse:
+      type: object
+      description: Response containing national generation mix data
+      properties:
+        data:
+          type: array
+          description: Array of generation mix periods
+          items:
+            $ref: '#/components/schemas/GenerationPeriod'
     GenerationPeriod:
       type: object
       description: Generation mix data for a single half-hour period
@@ -126,52 +166,12 @@ components:
           description: List of fuel type generation percentages
           items:
             $ref: '#/components/schemas/GenerationMixItem'
-    GenerationResponse:
-      type: object
-      description: Response containing national generation mix data
-      properties:
-        data:
-          type: array
-          description: Array of generation mix periods
-          items:
-            $ref: '#/components/schemas/GenerationPeriod'
     ErrorResponse:
       type: object
       description: Error response wrapper
       properties:
         error:
           $ref: '#/components/schemas/Error'
-    Error:
-      type: object
-      description: Error response
-      properties:
-        code:
-          type: string
-          description: HTTP status code and description
-          example: 400 Bad Request
-        message:
-          type: string
-          description: Human-readable error message
-          example: Please enter a valid path e.g. /intensity/
-  parameters:
-    FromDatetime:
-      name: from
-      in: path
-      required: true
-      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
-      schema:
-        type: string
-        format: date-time
-        example: 2018-01-20T12:00Z
-    ToDatetime:
-      name: to
-      in: path
-      required: true
-      description: 'End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z'
-      schema:
-        type: string
-        format: date-time
-        example: 2018-01-20T12:30Z
   responses:
     BadRequest:
       description: Bad request - invalid parameters or path

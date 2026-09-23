@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Carbon Intensity Factors National Intensity API
-  description: The Carbon Intensity API is the official carbon intensity forecasting service for Great Britain, developed by the National Energy System Operator (NESO) in partnership with EDF, the University of Oxford, and WWF. It provides real-time, forecast, and historical carbon intensity data alongside generation mix information for GB electricity, with 96+ hour forecasts and 30-minute temporal resolution across 14 regional DNO boundaries. The API is publicly accessible with no authentication required and is licensed under CC BY 4.0.
+  title: Carbon Intensity National Intensity API
+  description: The Carbon Intensity API is the official carbon intensity forecasting service for Great Britain, developed by the National Energy System Operator (NESO) in partnership with EDF, the University of Oxford, and WWF.
   version: '2.0'
   contact:
     name: Carbon Intensity API Support
@@ -237,8 +237,9 @@ components:
           description: Forecasted carbon intensity in gCO2/kWh
           example: 266
         actual:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           description: Actual carbon intensity in gCO2/kWh (null for future periods)
           example: 263
         index:
@@ -260,6 +261,18 @@ components:
           description: Array of carbon intensity periods
           items:
             $ref: '#/components/schemas/IntensityPeriod'
+    Error:
+      type: object
+      description: Error response
+      properties:
+        code:
+          type: string
+          description: HTTP status code and description
+          example: 400 Bad Request
+        message:
+          type: string
+          description: Human-readable error message
+          example: Please enter a valid path e.g. /intensity/
     ErrorResponse:
       type: object
       description: Error response wrapper
@@ -282,28 +295,7 @@ components:
           example: 2018-01-20T12:30Z
         intensity:
           $ref: '#/components/schemas/Intensity'
-    Error:
-      type: object
-      description: Error response
-      properties:
-        code:
-          type: string
-          description: HTTP status code and description
-          example: 400 Bad Request
-        message:
-          type: string
-          description: Human-readable error message
-          example: Please enter a valid path e.g. /intensity/
   parameters:
-    FromDatetime:
-      name: from
-      in: path
-      required: true
-      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
-      schema:
-        type: string
-        format: date-time
-        example: 2018-01-20T12:00Z
     ToDatetime:
       name: to
       in: path
@@ -313,6 +305,15 @@ components:
         type: string
         format: date-time
         example: 2018-01-20T12:30Z
+    FromDatetime:
+      name: from
+      in: path
+      required: true
+      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:00Z
   responses:
     BadRequest:
       description: Bad request - invalid parameters or path

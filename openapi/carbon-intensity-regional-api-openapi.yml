@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Carbon Intensity Factors Regional API
-  description: The Carbon Intensity API is the official carbon intensity forecasting service for Great Britain, developed by the National Energy System Operator (NESO) in partnership with EDF, the University of Oxford, and WWF. It provides real-time, forecast, and historical carbon intensity data alongside generation mix information for GB electricity, with 96+ hour forecasts and 30-minute temporal resolution across 14 regional DNO boundaries. The API is publicly accessible with no authentication required and is licensed under CC BY 4.0.
+  title: Carbon Intensity Regional API
+  description: The Carbon Intensity API is the official carbon intensity forecasting service for Great Britain, developed by the National Energy System Operator (NESO) in partnership with EDF, the University of Oxford, and WWF.
   version: '2.0'
   contact:
     name: Carbon Intensity API Support
@@ -388,30 +388,9 @@ paths:
           $ref: '#/components/responses/InternalServerError'
 components:
   schemas:
-    RegionDataPeriod:
+    Region:
       type: object
-      description: Carbon intensity and generation mix for a single time period within a region
-      properties:
-        from:
-          type: string
-          format: date-time
-          description: Start of the half-hour period (ISO 8601)
-          example: 2018-01-20T12:00Z
-        to:
-          type: string
-          format: date-time
-          description: End of the half-hour period (ISO 8601)
-          example: 2018-01-20T12:30Z
-        intensity:
-          $ref: '#/components/schemas/RegionalIntensity'
-        generationmix:
-          type: array
-          description: Generation mix for this period
-          items:
-            $ref: '#/components/schemas/GenerationMixItem'
-    RegionById:
-      type: object
-      description: Data for a specific DNO region with time-series data
+      description: Data for a single DNO region
       properties:
         regionid:
           type: integer
@@ -425,11 +404,13 @@ components:
           type: string
           description: Short region name
           example: North West England
-        data:
+        intensity:
+          $ref: '#/components/schemas/RegionalIntensity'
+        generationmix:
           type: array
-          description: Time-series intensity and generation mix data
+          description: Generation mix for this region
           items:
-            $ref: '#/components/schemas/RegionDataPeriod'
+            $ref: '#/components/schemas/GenerationMixItem'
     RegionByPostcode:
       type: object
       description: Data for the DNO region containing the specified postcode
@@ -455,29 +436,34 @@ components:
           description: Time-series intensity and generation mix data
           items:
             $ref: '#/components/schemas/RegionDataPeriod'
-    Region:
+    RegionalPeriod:
       type: object
-      description: Data for a single DNO region
+      description: Regional carbon intensity data for a time period
       properties:
-        regionid:
-          type: integer
-          description: DNO region identifier (1-17)
-          example: 3
-        dnoregion:
+        from:
           type: string
-          description: Full DNO region name
-          example: Electricity North West
-        shortname:
+          format: date-time
+          description: Start of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:00Z
+        to:
           type: string
-          description: Short region name
-          example: North West England
-        intensity:
-          $ref: '#/components/schemas/RegionalIntensity'
-        generationmix:
+          format: date-time
+          description: End of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:30Z
+        regions:
           type: array
-          description: Generation mix for this region
+          description: List of regional intensity data
           items:
-            $ref: '#/components/schemas/GenerationMixItem'
+            $ref: '#/components/schemas/Region'
+    RegionIdResponse:
+      type: object
+      description: Response containing data for a specific region
+      properties:
+        data:
+          type: array
+          description: Array containing the region data
+          items:
+            $ref: '#/components/schemas/RegionById'
     GenerationMixItem:
       type: object
       description: Generation percentage for a single fuel type
@@ -503,24 +489,39 @@ components:
           minimum: 0
           maximum: 100
           example: 43.6
-    RegionalResponse:
+    Error:
       type: object
-      description: Response containing regional carbon intensity data
+      description: Error response
       properties:
-        data:
-          type: array
-          description: Array of regional carbon intensity periods
-          items:
-            $ref: '#/components/schemas/RegionalPeriod'
-    PostcodeResponse:
+        code:
+          type: string
+          description: HTTP status code and description
+          example: 400 Bad Request
+        message:
+          type: string
+          description: Human-readable error message
+          example: Please enter a valid path e.g. /intensity/
+    RegionDataPeriod:
       type: object
-      description: Response containing data for the region matching a postcode
+      description: Carbon intensity and generation mix for a single time period within a region
       properties:
-        data:
+        from:
+          type: string
+          format: date-time
+          description: Start of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:00Z
+        to:
+          type: string
+          format: date-time
+          description: End of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:30Z
+        intensity:
+          $ref: '#/components/schemas/RegionalIntensity'
+        generationmix:
           type: array
-          description: Array containing the postcode region data
+          description: Generation mix for this period
           items:
-            $ref: '#/components/schemas/RegionByPostcode'
+            $ref: '#/components/schemas/GenerationMixItem'
     RegionalIntensity:
       type: object
       description: Regional carbon intensity data
@@ -539,62 +540,52 @@ components:
           - high
           - very high
           example: moderate
+    PostcodeResponse:
+      type: object
+      description: Response containing data for the region matching a postcode
+      properties:
+        data:
+          type: array
+          description: Array containing the postcode region data
+          items:
+            $ref: '#/components/schemas/RegionByPostcode'
+    RegionById:
+      type: object
+      description: Data for a specific DNO region with time-series data
+      properties:
+        regionid:
+          type: integer
+          description: DNO region identifier (1-17)
+          example: 3
+        dnoregion:
+          type: string
+          description: Full DNO region name
+          example: Electricity North West
+        shortname:
+          type: string
+          description: Short region name
+          example: North West England
+        data:
+          type: array
+          description: Time-series intensity and generation mix data
+          items:
+            $ref: '#/components/schemas/RegionDataPeriod'
+    RegionalResponse:
+      type: object
+      description: Response containing regional carbon intensity data
+      properties:
+        data:
+          type: array
+          description: Array of regional carbon intensity periods
+          items:
+            $ref: '#/components/schemas/RegionalPeriod'
     ErrorResponse:
       type: object
       description: Error response wrapper
       properties:
         error:
           $ref: '#/components/schemas/Error'
-    RegionIdResponse:
-      type: object
-      description: Response containing data for a specific region
-      properties:
-        data:
-          type: array
-          description: Array containing the region data
-          items:
-            $ref: '#/components/schemas/RegionById'
-    RegionalPeriod:
-      type: object
-      description: Regional carbon intensity data for a time period
-      properties:
-        from:
-          type: string
-          format: date-time
-          description: Start of the half-hour period (ISO 8601)
-          example: 2018-01-20T12:00Z
-        to:
-          type: string
-          format: date-time
-          description: End of the half-hour period (ISO 8601)
-          example: 2018-01-20T12:30Z
-        regions:
-          type: array
-          description: List of regional intensity data
-          items:
-            $ref: '#/components/schemas/Region'
-    Error:
-      type: object
-      description: Error response
-      properties:
-        code:
-          type: string
-          description: HTTP status code and description
-          example: 400 Bad Request
-        message:
-          type: string
-          description: Human-readable error message
-          example: Please enter a valid path e.g. /intensity/
   parameters:
-    FromDatetime:
-      name: from
-      in: path
-      required: true
-      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
-      schema:
-        type: string
-        format: date-time
-        example: 2018-01-20T12:00Z
     ToDatetime:
       name: to
       in: path
@@ -604,6 +595,15 @@ components:
         type: string
         format: date-time
         example: 2018-01-20T12:30Z
+    FromDatetime:
+      name: from
+      in: path
+      required: true
+      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:00Z
   responses:
     BadRequest:
       description: Bad request - invalid parameters or path
