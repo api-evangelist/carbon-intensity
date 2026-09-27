@@ -81,38 +81,16 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 components:
-  parameters:
-    ToDatetime:
-      name: to
-      in: path
-      required: true
-      description: 'End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z'
-      schema:
-        type: string
-        format: date-time
-        example: 2018-01-20T12:30Z
-    FromDatetime:
-      name: from
-      in: path
-      required: true
-      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
-      schema:
-        type: string
-        format: date-time
-        example: 2018-01-20T12:00Z
   schemas:
-    Error:
+    GenerationResponse:
       type: object
-      description: Error response
+      description: Response containing national generation mix data
       properties:
-        code:
-          type: string
-          description: HTTP status code and description
-          example: 400 Bad Request
-        message:
-          type: string
-          description: Human-readable error message
-          example: Please enter a valid path e.g. /intensity/
+        data:
+          type: array
+          description: Array of generation mix periods
+          items:
+            $ref: '#/components/schemas/GenerationPeriod'
     GenerationMixItem:
       type: object
       description: Generation percentage for a single fuel type
@@ -138,15 +116,24 @@ components:
           minimum: 0
           maximum: 100
           example: 43.6
-    GenerationResponse:
+    Error:
       type: object
-      description: Response containing national generation mix data
+      description: Error response
       properties:
-        data:
-          type: array
-          description: Array of generation mix periods
-          items:
-            $ref: '#/components/schemas/GenerationPeriod'
+        code:
+          type: string
+          description: HTTP status code and description
+          example: 400 Bad Request
+        message:
+          type: string
+          description: Human-readable error message
+          example: Please enter a valid path e.g. /intensity/
+    ErrorResponse:
+      type: object
+      description: Error response wrapper
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
     GenerationPeriod:
       type: object
       description: Generation mix data for a single half-hour period
@@ -166,12 +153,6 @@ components:
           description: List of fuel type generation percentages
           items:
             $ref: '#/components/schemas/GenerationMixItem'
-    ErrorResponse:
-      type: object
-      description: Error response wrapper
-      properties:
-        error:
-          $ref: '#/components/schemas/Error'
   responses:
     BadRequest:
       description: Bad request - invalid parameters or path
@@ -193,6 +174,25 @@ components:
             error:
               code: 500 Internal Server Error
               message: Internal Server Error
+  parameters:
+    FromDatetime:
+      name: from
+      in: path
+      required: true
+      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:00Z
+    ToDatetime:
+      name: to
+      in: path
+      required: true
+      description: 'End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:30Z
 externalDocs:
   description: Carbon Intensity API Documentation
   url: https://carbon-intensity.github.io/api-definitions/

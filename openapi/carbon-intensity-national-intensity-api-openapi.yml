@@ -228,6 +228,49 @@ paths:
           $ref: '#/components/responses/InternalServerError'
 components:
   schemas:
+    IntensityResponse:
+      type: object
+      description: Response containing national carbon intensity data
+      properties:
+        data:
+          type: array
+          description: Array of carbon intensity periods
+          items:
+            $ref: '#/components/schemas/IntensityPeriod'
+    IntensityPeriod:
+      type: object
+      description: Carbon intensity data for a single half-hour period
+      properties:
+        from:
+          type: string
+          format: date-time
+          description: Start of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:00Z
+        to:
+          type: string
+          format: date-time
+          description: End of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:30Z
+        intensity:
+          $ref: '#/components/schemas/Intensity'
+    Error:
+      type: object
+      description: Error response
+      properties:
+        code:
+          type: string
+          description: HTTP status code and description
+          example: 400 Bad Request
+        message:
+          type: string
+          description: Human-readable error message
+          example: Please enter a valid path e.g. /intensity/
+    ErrorResponse:
+      type: object
+      description: Error response wrapper
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
     Intensity:
       type: object
       description: Carbon intensity measurements and forecast
@@ -252,68 +295,6 @@ components:
           - high
           - very high
           example: moderate
-    IntensityResponse:
-      type: object
-      description: Response containing national carbon intensity data
-      properties:
-        data:
-          type: array
-          description: Array of carbon intensity periods
-          items:
-            $ref: '#/components/schemas/IntensityPeriod'
-    Error:
-      type: object
-      description: Error response
-      properties:
-        code:
-          type: string
-          description: HTTP status code and description
-          example: 400 Bad Request
-        message:
-          type: string
-          description: Human-readable error message
-          example: Please enter a valid path e.g. /intensity/
-    ErrorResponse:
-      type: object
-      description: Error response wrapper
-      properties:
-        error:
-          $ref: '#/components/schemas/Error'
-    IntensityPeriod:
-      type: object
-      description: Carbon intensity data for a single half-hour period
-      properties:
-        from:
-          type: string
-          format: date-time
-          description: Start of the half-hour period (ISO 8601)
-          example: 2018-01-20T12:00Z
-        to:
-          type: string
-          format: date-time
-          description: End of the half-hour period (ISO 8601)
-          example: 2018-01-20T12:30Z
-        intensity:
-          $ref: '#/components/schemas/Intensity'
-  parameters:
-    ToDatetime:
-      name: to
-      in: path
-      required: true
-      description: 'End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z'
-      schema:
-        type: string
-        format: date-time
-        example: 2018-01-20T12:30Z
-    FromDatetime:
-      name: from
-      in: path
-      required: true
-      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
-      schema:
-        type: string
-        format: date-time
-        example: 2018-01-20T12:00Z
   responses:
     BadRequest:
       description: Bad request - invalid parameters or path
@@ -335,6 +316,25 @@ components:
             error:
               code: 500 Internal Server Error
               message: Internal Server Error
+  parameters:
+    FromDatetime:
+      name: from
+      in: path
+      required: true
+      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:00Z
+    ToDatetime:
+      name: to
+      in: path
+      required: true
+      description: 'End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:30Z
 externalDocs:
   description: Carbon Intensity API Documentation
   url: https://carbon-intensity.github.io/api-definitions/

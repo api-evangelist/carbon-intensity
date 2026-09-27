@@ -126,6 +126,12 @@ components:
           type: string
           description: Human-readable error message
           example: Please enter a valid path e.g. /intensity/
+    ErrorResponse:
+      type: object
+      description: Error response wrapper
+      properties:
+        error:
+          $ref: '#/components/schemas/Error'
     FactorsResponse:
       type: object
       description: Response containing carbon intensity factors by fuel type
@@ -135,12 +141,6 @@ components:
           description: Array containing the factors object
           items:
             $ref: '#/components/schemas/CarbonIntensityFactors'
-    ErrorResponse:
-      type: object
-      description: Error response wrapper
-      properties:
-        error:
-          $ref: '#/components/schemas/Error'
   responses:
     BadRequest:
       description: Bad request - invalid parameters or path
