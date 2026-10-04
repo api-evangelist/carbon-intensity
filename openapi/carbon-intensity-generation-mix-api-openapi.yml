@@ -100,43 +100,7 @@ components:
         type: string
         format: date-time
         example: 2018-01-20T12:30Z
-  responses:
-    InternalServerError:
-      description: Internal server error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-          example:
-            error:
-              code: 500 Internal Server Error
-              message: Internal Server Error
-    BadRequest:
-      description: Bad request - invalid parameters or path
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-          example:
-            error:
-              code: 400 Bad Request
-              message: Please enter a valid path e.g. /intensity/
   schemas:
-    GenerationResponse:
-      type: object
-      description: Response containing national generation mix data
-      properties:
-        data:
-          type: array
-          description: Array of generation mix periods
-          items:
-            $ref: '#/components/schemas/GenerationPeriod'
-    ErrorResponse:
-      type: object
-      description: Error response wrapper
-      properties:
-        error:
-          $ref: '#/components/schemas/Error'
     GenerationMixItem:
       type: object
       description: Generation percentage for a single fuel type
@@ -162,6 +126,18 @@ components:
           minimum: 0
           maximum: 100
           example: 43.6
+    Error:
+      type: object
+      description: Error response
+      properties:
+        code:
+          type: string
+          description: HTTP status code and description
+          example: 400 Bad Request
+        message:
+          type: string
+          description: Human-readable error message
+          example: Please enter a valid path e.g. /intensity/
     GenerationPeriod:
       type: object
       description: Generation mix data for a single half-hour period
@@ -181,18 +157,42 @@ components:
           description: List of fuel type generation percentages
           items:
             $ref: '#/components/schemas/GenerationMixItem'
-    Error:
+    ErrorResponse:
       type: object
-      description: Error response
+      description: Error response wrapper
       properties:
-        code:
-          type: string
-          description: HTTP status code and description
-          example: 400 Bad Request
-        message:
-          type: string
-          description: Human-readable error message
-          example: Please enter a valid path e.g. /intensity/
+        error:
+          $ref: '#/components/schemas/Error'
+    GenerationResponse:
+      type: object
+      description: Response containing national generation mix data
+      properties:
+        data:
+          type: array
+          description: Array of generation mix periods
+          items:
+            $ref: '#/components/schemas/GenerationPeriod'
+  responses:
+    BadRequest:
+      description: Bad request - invalid parameters or path
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: 400 Bad Request
+              message: Please enter a valid path e.g. /intensity/
+    InternalServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: 500 Internal Server Error
+              message: Internal Server Error
 externalDocs:
   description: Carbon Intensity API Documentation
   url: https://carbon-intensity.github.io/api-definitions/

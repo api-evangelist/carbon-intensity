@@ -387,7 +387,82 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 components:
+  parameters:
+    FromDatetime:
+      name: from
+      in: path
+      required: true
+      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:00Z
+    ToDatetime:
+      name: to
+      in: path
+      required: true
+      description: 'End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:30Z
   schemas:
+    GenerationMixItem:
+      type: object
+      description: Generation percentage for a single fuel type
+      properties:
+        fuel:
+          type: string
+          description: Fuel type name
+          enum:
+          - biomass
+          - coal
+          - imports
+          - gas
+          - nuclear
+          - other
+          - hydro
+          - solar
+          - wind
+          example: gas
+        perc:
+          type: number
+          format: float
+          description: Percentage of total generation from this fuel type
+          minimum: 0
+          maximum: 100
+          example: 43.6
+    RegionalPeriod:
+      type: object
+      description: Regional carbon intensity data for a time period
+      properties:
+        from:
+          type: string
+          format: date-time
+          description: Start of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:00Z
+        to:
+          type: string
+          format: date-time
+          description: End of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:30Z
+        regions:
+          type: array
+          description: List of regional intensity data
+          items:
+            $ref: '#/components/schemas/Region'
+    Error:
+      type: object
+      description: Error response
+      properties:
+        code:
+          type: string
+          description: HTTP status code and description
+          example: 400 Bad Request
+        message:
+          type: string
+          description: Human-readable error message
+          example: Please enter a valid path e.g. /intensity/
     RegionalIntensity:
       type: object
       description: Regional carbon intensity data
@@ -415,139 +490,6 @@ components:
           description: Array of regional carbon intensity periods
           items:
             $ref: '#/components/schemas/RegionalPeriod'
-    RegionalPeriod:
-      type: object
-      description: Regional carbon intensity data for a time period
-      properties:
-        from:
-          type: string
-          format: date-time
-          description: Start of the half-hour period (ISO 8601)
-          example: 2018-01-20T12:00Z
-        to:
-          type: string
-          format: date-time
-          description: End of the half-hour period (ISO 8601)
-          example: 2018-01-20T12:30Z
-        regions:
-          type: array
-          description: List of regional intensity data
-          items:
-            $ref: '#/components/schemas/Region'
-    Region:
-      type: object
-      description: Data for a single DNO region
-      properties:
-        regionid:
-          type: integer
-          description: DNO region identifier (1-17)
-          example: 3
-        dnoregion:
-          type: string
-          description: Full DNO region name
-          example: Electricity North West
-        shortname:
-          type: string
-          description: Short region name
-          example: North West England
-        intensity:
-          $ref: '#/components/schemas/RegionalIntensity'
-        generationmix:
-          type: array
-          description: Generation mix for this region
-          items:
-            $ref: '#/components/schemas/GenerationMixItem'
-    PostcodeResponse:
-      type: object
-      description: Response containing data for the region matching a postcode
-      properties:
-        data:
-          type: array
-          description: Array containing the postcode region data
-          items:
-            $ref: '#/components/schemas/RegionByPostcode'
-    RegionDataPeriod:
-      type: object
-      description: Carbon intensity and generation mix for a single time period within a region
-      properties:
-        from:
-          type: string
-          format: date-time
-          description: Start of the half-hour period (ISO 8601)
-          example: 2018-01-20T12:00Z
-        to:
-          type: string
-          format: date-time
-          description: End of the half-hour period (ISO 8601)
-          example: 2018-01-20T12:30Z
-        intensity:
-          $ref: '#/components/schemas/RegionalIntensity'
-        generationmix:
-          type: array
-          description: Generation mix for this period
-          items:
-            $ref: '#/components/schemas/GenerationMixItem'
-    RegionById:
-      type: object
-      description: Data for a specific DNO region with time-series data
-      properties:
-        regionid:
-          type: integer
-          description: DNO region identifier (1-17)
-          example: 3
-        dnoregion:
-          type: string
-          description: Full DNO region name
-          example: Electricity North West
-        shortname:
-          type: string
-          description: Short region name
-          example: North West England
-        data:
-          type: array
-          description: Time-series intensity and generation mix data
-          items:
-            $ref: '#/components/schemas/RegionDataPeriod'
-    RegionIdResponse:
-      type: object
-      description: Response containing data for a specific region
-      properties:
-        data:
-          type: array
-          description: Array containing the region data
-          items:
-            $ref: '#/components/schemas/RegionById'
-    ErrorResponse:
-      type: object
-      description: Error response wrapper
-      properties:
-        error:
-          $ref: '#/components/schemas/Error'
-    GenerationMixItem:
-      type: object
-      description: Generation percentage for a single fuel type
-      properties:
-        fuel:
-          type: string
-          description: Fuel type name
-          enum:
-          - biomass
-          - coal
-          - imports
-          - gas
-          - nuclear
-          - other
-          - hydro
-          - solar
-          - wind
-          example: gas
-        perc:
-          type: number
-          format: float
-          description: Percentage of total generation from this fuel type
-          minimum: 0
-          maximum: 100
-          example: 43.6
     RegionByPostcode:
       type: object
       description: Data for the DNO region containing the specified postcode
@@ -573,48 +515,96 @@ components:
           description: Time-series intensity and generation mix data
           items:
             $ref: '#/components/schemas/RegionDataPeriod'
-    Error:
+    ErrorResponse:
       type: object
-      description: Error response
+      description: Error response wrapper
       properties:
-        code:
+        error:
+          $ref: '#/components/schemas/Error'
+    Region:
+      type: object
+      description: Data for a single DNO region
+      properties:
+        regionid:
+          type: integer
+          description: DNO region identifier (1-17)
+          example: 3
+        dnoregion:
           type: string
-          description: HTTP status code and description
-          example: 400 Bad Request
-        message:
+          description: Full DNO region name
+          example: Electricity North West
+        shortname:
           type: string
-          description: Human-readable error message
-          example: Please enter a valid path e.g. /intensity/
-  parameters:
-    FromDatetime:
-      name: from
-      in: path
-      required: true
-      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
-      schema:
-        type: string
-        format: date-time
-        example: 2018-01-20T12:00Z
-    ToDatetime:
-      name: to
-      in: path
-      required: true
-      description: 'End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z'
-      schema:
-        type: string
-        format: date-time
-        example: 2018-01-20T12:30Z
+          description: Short region name
+          example: North West England
+        intensity:
+          $ref: '#/components/schemas/RegionalIntensity'
+        generationmix:
+          type: array
+          description: Generation mix for this region
+          items:
+            $ref: '#/components/schemas/GenerationMixItem'
+    RegionById:
+      type: object
+      description: Data for a specific DNO region with time-series data
+      properties:
+        regionid:
+          type: integer
+          description: DNO region identifier (1-17)
+          example: 3
+        dnoregion:
+          type: string
+          description: Full DNO region name
+          example: Electricity North West
+        shortname:
+          type: string
+          description: Short region name
+          example: North West England
+        data:
+          type: array
+          description: Time-series intensity and generation mix data
+          items:
+            $ref: '#/components/schemas/RegionDataPeriod'
+    RegionDataPeriod:
+      type: object
+      description: Carbon intensity and generation mix for a single time period within a region
+      properties:
+        from:
+          type: string
+          format: date-time
+          description: Start of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:00Z
+        to:
+          type: string
+          format: date-time
+          description: End of the half-hour period (ISO 8601)
+          example: 2018-01-20T12:30Z
+        intensity:
+          $ref: '#/components/schemas/RegionalIntensity'
+        generationmix:
+          type: array
+          description: Generation mix for this period
+          items:
+            $ref: '#/components/schemas/GenerationMixItem'
+    PostcodeResponse:
+      type: object
+      description: Response containing data for the region matching a postcode
+      properties:
+        data:
+          type: array
+          description: Array containing the postcode region data
+          items:
+            $ref: '#/components/schemas/RegionByPostcode'
+    RegionIdResponse:
+      type: object
+      description: Response containing data for a specific region
+      properties:
+        data:
+          type: array
+          description: Array containing the region data
+          items:
+            $ref: '#/components/schemas/RegionById'
   responses:
-    InternalServerError:
-      description: Internal server error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-          example:
-            error:
-              code: 500 Internal Server Error
-              message: Internal Server Error
     BadRequest:
       description: Bad request - invalid parameters or path
       content:
@@ -625,6 +615,16 @@ components:
             error:
               code: 400 Bad Request
               message: Please enter a valid path e.g. /intensity/
+    InternalServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: 500 Internal Server Error
+              message: Internal Server Error
 externalDocs:
   description: Carbon Intensity API Documentation
   url: https://carbon-intensity.github.io/api-definitions/

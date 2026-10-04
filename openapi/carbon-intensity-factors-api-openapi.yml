@@ -53,28 +53,28 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 components:
-  responses:
-    InternalServerError:
-      description: Internal server error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-          example:
-            error:
-              code: 500 Internal Server Error
-              message: Internal Server Error
-    BadRequest:
-      description: Bad request - invalid parameters or path
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-          example:
-            error:
-              code: 400 Bad Request
-              message: Please enter a valid path e.g. /intensity/
   schemas:
+    Error:
+      type: object
+      description: Error response
+      properties:
+        code:
+          type: string
+          description: HTTP status code and description
+          example: 400 Bad Request
+        message:
+          type: string
+          description: Human-readable error message
+          example: Please enter a valid path e.g. /intensity/
+    FactorsResponse:
+      type: object
+      description: Response containing carbon intensity factors by fuel type
+      properties:
+        data:
+          type: array
+          description: Array containing the factors object
+          items:
+            $ref: '#/components/schemas/CarbonIntensityFactors'
     CarbonIntensityFactors:
       type: object
       description: Carbon intensity factors by fuel type (gCO2/kWh)
@@ -135,33 +135,33 @@ components:
           type: integer
           description: Carbon intensity factor for wind generation (gCO2/kWh)
           example: 0
-    FactorsResponse:
-      type: object
-      description: Response containing carbon intensity factors by fuel type
-      properties:
-        data:
-          type: array
-          description: Array containing the factors object
-          items:
-            $ref: '#/components/schemas/CarbonIntensityFactors'
     ErrorResponse:
       type: object
       description: Error response wrapper
       properties:
         error:
           $ref: '#/components/schemas/Error'
-    Error:
-      type: object
-      description: Error response
-      properties:
-        code:
-          type: string
-          description: HTTP status code and description
-          example: 400 Bad Request
-        message:
-          type: string
-          description: Human-readable error message
-          example: Please enter a valid path e.g. /intensity/
+  responses:
+    BadRequest:
+      description: Bad request - invalid parameters or path
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: 400 Bad Request
+              message: Please enter a valid path e.g. /intensity/
+    InternalServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: 500 Internal Server Error
+              message: Internal Server Error
 externalDocs:
   description: Carbon Intensity API Documentation
   url: https://carbon-intensity.github.io/api-definitions/

@@ -79,23 +79,47 @@ paths:
         '500':
           $ref: '#/components/responses/InternalServerError'
 components:
+  parameters:
+    FromDatetime:
+      name: from
+      in: path
+      required: true
+      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:00Z
+    ToDatetime:
+      name: to
+      in: path
+      required: true
+      description: 'End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z'
+      schema:
+        type: string
+        format: date-time
+        example: 2018-01-20T12:30Z
   schemas:
-    IntensityStatsPeriod:
+    Error:
       type: object
-      description: Carbon intensity statistics for a time period
+      description: Error response
       properties:
-        from:
+        code:
           type: string
-          format: date-time
-          description: Start of the period (ISO 8601)
-          example: 2018-01-20T12:00Z
-        to:
+          description: HTTP status code and description
+          example: 400 Bad Request
+        message:
           type: string
-          format: date-time
-          description: End of the period (ISO 8601)
-          example: 2018-01-20T12:30Z
-        intensity:
-          $ref: '#/components/schemas/IntensityStats'
+          description: Human-readable error message
+          example: Please enter a valid path e.g. /intensity/
+    IntensityStatsResponse:
+      type: object
+      description: Response containing aggregated carbon intensity statistics
+      properties:
+        data:
+          type: array
+          description: Array of carbon intensity statistics periods
+          items:
+            $ref: '#/components/schemas/IntensityStatsPeriod'
     IntensityStats:
       type: object
       description: Aggregated carbon intensity statistics
@@ -122,63 +146,29 @@ components:
           - high
           - very high
           example: moderate
-    IntensityStatsResponse:
-      type: object
-      description: Response containing aggregated carbon intensity statistics
-      properties:
-        data:
-          type: array
-          description: Array of carbon intensity statistics periods
-          items:
-            $ref: '#/components/schemas/IntensityStatsPeriod'
     ErrorResponse:
       type: object
       description: Error response wrapper
       properties:
         error:
           $ref: '#/components/schemas/Error'
-    Error:
+    IntensityStatsPeriod:
       type: object
-      description: Error response
+      description: Carbon intensity statistics for a time period
       properties:
-        code:
+        from:
           type: string
-          description: HTTP status code and description
-          example: 400 Bad Request
-        message:
+          format: date-time
+          description: Start of the period (ISO 8601)
+          example: 2018-01-20T12:00Z
+        to:
           type: string
-          description: Human-readable error message
-          example: Please enter a valid path e.g. /intensity/
-  parameters:
-    FromDatetime:
-      name: from
-      in: path
-      required: true
-      description: 'Start datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:00Z'
-      schema:
-        type: string
-        format: date-time
-        example: 2018-01-20T12:00Z
-    ToDatetime:
-      name: to
-      in: path
-      required: true
-      description: 'End datetime in ISO 8601 format (YYYY-MM-DDThh:mmZ). Example: 2018-01-20T12:30Z'
-      schema:
-        type: string
-        format: date-time
-        example: 2018-01-20T12:30Z
+          format: date-time
+          description: End of the period (ISO 8601)
+          example: 2018-01-20T12:30Z
+        intensity:
+          $ref: '#/components/schemas/IntensityStats'
   responses:
-    InternalServerError:
-      description: Internal server error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-          example:
-            error:
-              code: 500 Internal Server Error
-              message: Internal Server Error
     BadRequest:
       description: Bad request - invalid parameters or path
       content:
@@ -189,6 +179,16 @@ components:
             error:
               code: 400 Bad Request
               message: Please enter a valid path e.g. /intensity/
+    InternalServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error:
+              code: 500 Internal Server Error
+              message: Internal Server Error
 externalDocs:
   description: Carbon Intensity API Documentation
   url: https://carbon-intensity.github.io/api-definitions/
