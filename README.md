@@ -64,29 +64,161 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-The Carbon Intensity API is the official carbon intensity forecasting service for Great Britain, developed by the National Energy System Operator (NESO) in partnership with EDF, the University of Oxford, and WWF. It provides real-time, forecast, and historical carbon intensity data alongside generation mix information for GB electricity generation.
+The Carbon Intensity API is the official carbon intensity forecasting service for Great Britain, developed by the National Energy System Operator (NESO) in partnership with EDF, the University of Oxford, and WWF. It provides real-time, forecast, and historical carbon intensity data alongside generation mix information for GB electricity, with 96+ hour forecasts and 30-minute temporal resolution across 14 regional DNO boundaries. The API is publicly accessible with no authentication required and is licensed under CC BY 4.0.
 
-- **API Base URL:** https://api.carbonintensity.org.uk
-- **Documentation:** https://carbon-intensity.github.io/api-definitions/
-- **Website:** https://carbonintensity.org.uk/
-- **GitHub:** https://github.com/carbon-intensity
-- **License:** CC BY 4.0
-- **Authentication:** None required
+**Areas:** Carbon Intensity · Environment · Energy · Electricity · Climate · Great Britain · National Grid
 
-## Key Capabilities
+## Carbon Intensity API on APIs.io
 
-- Real-time national carbon intensity (current 30-minute settlement period)
-- 96+ hour forward forecasts for carbon intensity and generation mix
-- Historical data queries (up to 14-day ranges for intensity, 30-day for statistics)
-- 14 regional datasets aligned to DNO boundaries across Great Britain
-- England, Scotland, and Wales country-level endpoints
-- Postcode-level carbon intensity queries
-- Generation mix by fuel type (gas, coal, nuclear, wind, solar, hydro, biomass, imports, other)
+Everything profiled for Carbon Intensity API is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/carbon-intensity/](https://apis.io/providers/carbon-intensity/)** — or go straight to one of the APIs or properties below.
 
-## Pricing
+### APIs (5)
 
-The API is provided free of charge with no authentication or registration required. NESO applies rate limiting at its discretion and may block high-volume callers per its Terms of Use.
+- [Carbon Intensity API Factors API](https://apis.io/apis/carbon-intensity/carbon-intensity-factors-api/) — Carbon intensity factors by fuel type
+- [Carbon Intensity API Generation Mix API](https://apis.io/apis/carbon-intensity/carbon-intensity-generation-mix-api/) — Electricity generation mix data (beta)
+- [Carbon Intensity API National Intensity API](https://apis.io/apis/carbon-intensity/carbon-intensity-national-intensity-api/) — National carbon intensity data for Great Britain
+- [Carbon Intensity API Regional API](https://apis.io/apis/carbon-intensity/carbon-intensity-regional-api/) — Regional carbon intensity and generation mix data (beta)
+- [Carbon Intensity API Statistics API](https://apis.io/apis/carbon-intensity/carbon-intensity-statistics-api/) — Carbon intensity statistics and aggregations
 
-## Profile
+### Published properties
 
-This repository contains an APIs.json 0.19 provider profile for the Carbon Intensity API, maintained by [API Evangelist](https://apievangelist.com).
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Carbon Intensity Agentic Access](https://apis.io/agentic-access/carbon-intensity/carbon-intensity-agentic-access/)
+
+#### JSON Schema (4)
+
+The data models the API reads and writes.
+
+- [Generation Mix](https://apis.io/schemas/carbon-intensity/generation-mix/)
+- [Carbon Intensity Factors](https://apis.io/schemas/carbon-intensity/intensity-factors/)
+- [Intensity Period](https://apis.io/schemas/carbon-intensity/intensity-period/)
+- [Regional Intensity](https://apis.io/schemas/carbon-intensity/regional-intensity/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Carbon Intensity Context](https://apis.io/jsonld/carbon-intensity/carbon-intensity-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Carbon Intensity API Vocabulary](https://apis.io/vocabularies/carbon-intensity/carbon-intensity-vocabulary/)
+
+#### Examples (5)
+
+Example requests and responses.
+
+- [Get Current Intensity](https://apis.io/examples/carbon-intensity/get-current-intensity/)
+- [Get Generation Mix](https://apis.io/examples/carbon-intensity/get-generation-mix/)
+- [Get Intensity Factors](https://apis.io/examples/carbon-intensity/get-intensity-factors/)
+- [Get Intensity Stats](https://apis.io/examples/carbon-intensity/get-intensity-stats/)
+- [Get Regional Intensity](https://apis.io/examples/carbon-intensity/get-regional-intensity/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [Carbon Intensity Factors API](https://apis.io/collections/carbon-intensity/open-carbon-intensity-factors-api/)
+- [Carbon Intensity Factors Generation Mix API](https://apis.io/collections/carbon-intensity/open-carbon-intensity-generation-mix-api/)
+- [Carbon Intensity Factors National Intensity API](https://apis.io/collections/carbon-intensity/open-carbon-intensity-national-intensity-api/)
+- [Carbon Intensity Factors Regional API](https://apis.io/collections/carbon-intensity/open-carbon-intensity-regional-api/)
+- [Carbon Intensity Factors Statistics API](https://apis.io/collections/carbon-intensity/open-carbon-intensity-statistics-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Carbon Intensity API — jsonschema rules](https://apis.io/rules/carbon-intensity/carbon-intensity-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Carbon Intensity Domain Security](https://apis.io/security/carbon-intensity/carbon-intensity-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Carbon Intensity Plans](https://apis.io/plans/carbon-intensity/carbon-intensity-plans/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Carbon Intensity Rate Limits](https://apis.io/rate-limits/carbon-intensity/carbon-intensity-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Carbon Intensity Finops](https://apis.io/finops/carbon-intensity/carbon-intensity-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://carbonintensity.org.uk/)
+- [Documentation](https://carbon-intensity.github.io/api-definitions/)
+- [Terms of service](https://github.com/carbon-intensity/terms)
+- [GitHub](https://github.com/carbon-intensity)
+
+## API Evangelist rating
+
+**Kin Score 30.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 60.1 |
+| Contract governance | 23.5 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 15.8 |
+
+**Agent readiness 22.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 12.3** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/carbon-intensity/](https://apis.io/providers/carbon-intensity/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Carbon Intensity API: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/carbon-intensity/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
